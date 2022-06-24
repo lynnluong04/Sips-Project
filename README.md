@@ -1,1 +1,1 @@
-# Sips-Solo-Project
+# Sips
