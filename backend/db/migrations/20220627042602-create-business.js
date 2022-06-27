@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Users' 
+          model: 'Users'
         }
       },
       name: {
@@ -21,7 +21,6 @@ module.exports = {
       },
       description: {
         type: Sequelize.TEXT,
-        allowNull: false
       },
       address: {
         type: Sequelize.STRING(50),
@@ -42,6 +41,13 @@ module.exports = {
       category: {
         type: Sequelize.STRING(15),
         allowNull: false
+      },
+      phone: {
+        type: Sequelize.STRING(14),
+        allowNull: false
+      },
+      websiteUrl: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

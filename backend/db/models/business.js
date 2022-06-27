@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
     },
     address: {
       type: DataTypes.STRING,
@@ -35,6 +34,13 @@ module.exports = (sequelize, DataTypes) => {
     category: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    websiteUrl: {
+      type: DataTypes.STRING,
     }
   }, {});
   Business.associate = function(models) {
