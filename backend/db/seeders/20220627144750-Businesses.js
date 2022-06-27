@@ -7,10 +7,9 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
+    */
       return queryInterface.bulkInsert('Businesses', [
-        {
-        userId: 1,
+        {userId: 1,
         name: 'The Chai Spot',
         address:'156 Mott St',
         city:'New York',
@@ -25,7 +24,7 @@ module.exports = {
         {
         userId: 1,
         name: 'Sel Rrose',
-        descriptions:'Oysters, French Plates, Specialty Cocktails, Premium Liquors, Wine & Craft Beer in the evenings.',
+        description:'Oysters, French Plates, Specialty Cocktails, Premium Liquors, Wine & Craft Beer in the evenings.',
         address:'1 Delancey St',
         city:'New York',
         state: 'NY',
@@ -39,7 +38,6 @@ module.exports = {
         {
         userId: 1,
         name: 'Le Phin',
-        descriptions:,
         address:'259 E 10th St',
         city:'New York',
         state: 'NY',
@@ -53,8 +51,7 @@ module.exports = {
         {
         userId: 1,
         name: 'Alimama',
-        descriptions:'Indulge in our selection of teas and sweet treats - from donuts to cream puffs - without any guilt\!
-        Most of our offerings are gluten-free, and we have vegan options too.',
+        description:'Indulge in our selection of teas and sweet treats - from donuts to cream puffs - without any guilt\Most of our offerings are gluten-free, and we have vegan options too.',
         address:'89A Bayard St',
         city:'New York',
         state: 'NY',
@@ -68,7 +65,6 @@ module.exports = {
       {
         userId: 1,
         name: 'Juice Vitality',
-        descriptions:,
         address:'(212) 477-0071',
         city:'New York',
         state: 'NY',
@@ -78,7 +74,6 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }
-
     ], {});
   },
 

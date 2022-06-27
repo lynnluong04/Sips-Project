@@ -2,51 +2,50 @@
 module.exports = (sequelize, DataTypes) => {
   const Business = sequelize.define('Business', {
     userId: {
-      type: DataTypes.INTEGER,
       allowNull: false,
+      type: DataTypes.INTEGER,
       references: {
-        model: 'User' //singular or plural?
+        model: 'Users'
       }
     },
     name: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT
     },
     address: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING
     },
     city: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING
     },
     state: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING
     },
     zipcode: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
     category: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING
     },
     phone: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING
     },
     websiteUrl: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     }
   }, {});
   Business.associate = function(models) {
-   Business.belongsTo(models.User, {
-    foreignKey: 'userId'
-   })
+    Business.belongsTo(models.User, {
+      foreignKey: 'userId'
+     })
   };
   return Business;
 };

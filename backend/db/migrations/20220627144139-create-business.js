@@ -9,45 +9,44 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.INTEGER,
         allowNull: false,
+        type: Sequelize.INTEGER,
         references: {
           model: 'Users'
         }
       },
       name: {
-        type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING(25)
       },
       description: {
-        type: Sequelize.TEXT,
+        type: Sequelize.TEXT
       },
       address: {
-        type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING(50)
       },
       city: {
-        type: Sequelize.STRING(20),
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING(25)
       },
       state: {
-        type: Sequelize.STRING(15),
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING(15)
       },
       zipcode: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.INTEGER
       },
       category: {
-        type: Sequelize.STRING(15),
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING(15)
       },
       phone: {
-        type: Sequelize.STRING(14),
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING(14)
       },
       websiteUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
