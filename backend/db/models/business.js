@@ -46,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
     Business.belongsTo(models.User, {
       foreignKey: 'userId'
      })
+     Business.hasMany(models.Review, {
+      foreignKey: 'businessId',
+      onDelete: cascade
+    })
   };
   return Business;
 };
