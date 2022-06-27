@@ -10,8 +10,8 @@ const businesses = await Business.findall();
 return res.json(businesses)
 
 })
-
 )
+
 router.get('/:businessId', asyncHandler(async (req, res) => {
 
 })

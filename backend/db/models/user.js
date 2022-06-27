@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.hasMany(models.Business, {
       foreignKey: 'userId',
-      onDelete: cascade,
+      onDelete: 'cascade',
       // hooks: true what is this for
     })
     User.hasMany(models.Review, {
