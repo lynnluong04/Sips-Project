@@ -4,5 +4,17 @@ const { Business } = require('../../db/models');
 
 const router = express.Router();
 
-module.exports = router;
+router.get('/', asyncHandler(async (req, res) => {
+const businesses = await Business.findall();
 
+return res.json(businesses)
+
+})
+
+)
+router.get('/:businessId', asyncHandler(async (req, res) => {
+
+})
+)
+
+module.exports = router;
