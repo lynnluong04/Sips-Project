@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { thunkCreateBusiness, thunkGetBusinesses } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
@@ -51,6 +51,11 @@ const CreateBusinessForm = () => {
         history.push(`/businesses/${createdBusiness.id}`)
     }
 
+    const handleCancelClick = (e) => {
+        e.preventDefault();
+       history.push(`/`)
+      };
+
     return (
         <>
             <h2>Add your business</h2>
@@ -96,7 +101,7 @@ const CreateBusinessForm = () => {
                     <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl}/>
                 </label>
                 <button type="submit">Add your business</button>
-                <button type="button">Cancel</button>
+                <button type="button"onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )
