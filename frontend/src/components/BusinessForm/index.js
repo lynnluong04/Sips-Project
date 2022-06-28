@@ -48,7 +48,7 @@ const CreateBusinessForm = () => {
         };
 
         let createdBusiness = await dispatch(thunkCreateBusiness(payload))
-        // history.push(`/businesses/${createdBusiness.id}`)
+        history.push(`/businesses/${createdBusiness.id}`)
     }
 
     return (
