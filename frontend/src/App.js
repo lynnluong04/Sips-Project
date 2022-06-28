@@ -8,6 +8,7 @@ import AllBusinesses from "./components/AllBusinesses";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import BusinessDetail from "./components/BusinessDetail";
+import CreateBusinessForm from "./components/BusinessForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,14 +22,17 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
           <Route exact path="/businesses">
             <AllBusinesses />
+          </Route>
+          <Route exact path='businesses/new'>
+            <CreateBusinessForm />
           </Route>
           <Route exact path='/businesses/:businessId'>
             <BusinessDetail />

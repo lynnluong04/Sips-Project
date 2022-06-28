@@ -6,10 +6,14 @@ const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
 const businesses = await Business.findAll();
-
 return res.json(businesses)
-
 }));
+
+router.post('/', asyncHandler(async function (req, res) {
+      const business = await Business.create(req.body);
+      return res.json(business)
+    })
+  );
 
 router.get('/:businessId', asyncHandler(async (req, res) => {
     const business = await Business.findByPk(req.params.id);

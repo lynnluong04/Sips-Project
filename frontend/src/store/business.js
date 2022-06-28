@@ -27,7 +27,19 @@ const actionGetBusinesses = (businesses) => {
 
 // todo thunks
 export const thunkCreateBusiness = (businessData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/businesses/new`)
+    const response = await csrfFetch(`/api/businesses/new`, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(businessData)
+    })
+
+    if (response.ok) {
+        const business = await response.json()
+        dispatch(actionCreateBusiness(business))
+        return business;
+    }
 }
 
 export const thunkGetBusinesses = () => async (dispatch) => {
@@ -46,23 +58,28 @@ export const thunkGetOneBusiness = (businessId) => async (dispatch) => {
     const response = await fetch(`/api/businesses/${businessId}`);
 
     if (response.ok) {
-      const business = await response.json();
-      dispatch(actionGetBusinesses(business));
+        const business = await response.json();
+        dispatch(actionGetBusinesses(business));
+        return response;
     }
-  };
+};
 
 // todo reducers (slice of state)
 const businessReducer = (state = {}, action) => {
-    let newState = {...state}
+    let newState = { ...state }
     switch (action.type) {
-      case GET_BUSINESSES:
-        action.businesses.forEach(business => {
-            newState[business.id] = business
-        });
-        return newState
+        case GET_BUSINESSES:
+            action.businesses?.forEach(business => {
+                newState[business.id] = business
+            });
+            return newState
 
-      default:
-        return state;
+        case CREATE_BUSINESS:
+            newState[action.business.id] = action.business
+            return newState
+
+        default:
+            return state;
     }
 }
 
