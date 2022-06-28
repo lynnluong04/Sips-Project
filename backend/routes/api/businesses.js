@@ -5,7 +5,7 @@ const { Business } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
-const businesses = await Business.findall();
+const businesses = await Business.findAll();
 
 return res.json(businesses)
 

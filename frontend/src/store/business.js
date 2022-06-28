@@ -29,12 +29,12 @@ export const thunkCreateBusiness = (businessData) => async (dispatch) => {
     const response = await csrfFetch(`/api/businesses/new`)
 }
 
-export const thunkGetBusinesses = () => async dispatch => {
+export const thunkGetBusinesses = () => async (dispatch) => {
     const response = await csrfFetch('/api/businesses');
 
     if (response.ok) {
-        const businesses = await response.json();
-        dispatch(actionGetBusinesses(businesses));
+        const list = await response.json();
+        dispatch(actionGetBusinesses(list));
         return response;
     } else {
         return response.json()

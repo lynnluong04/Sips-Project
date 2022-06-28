@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { thunkCreateBusiness } from '../store/business.js'
-
+import { thunkCreateBusiness } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee','smoothies', 'tea'];
 
@@ -39,35 +38,35 @@ const CreateBusinessForm = ()=> {
             <form className='create-business-form'>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={}/>
+                    <input type='text' name='name' />
                 </label>
             </form>
         </>
