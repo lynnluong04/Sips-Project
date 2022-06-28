@@ -24,6 +24,7 @@ const actionGetBusinesses = (businesses) => {
         businesses
     }
 }
+
 // todo thunks
 export const thunkCreateBusiness = (businessData) => async (dispatch) => {
     const response = await csrfFetch(`/api/businesses/new`)
@@ -40,6 +41,15 @@ export const thunkGetBusinesses = () => async (dispatch) => {
         return response.json()
     }
 }
+
+export const thunkGetOneBusiness = (businessId) => async (dispatch) => {
+    const response = await fetch(`/api/businesses/${businessId}`);
+
+    if (response.ok) {
+      const business = await response.json();
+      dispatch(actionGetBusinesses(business));
+    }
+  };
 
 // todo reducers (slice of state)
 const businessReducer = (state = {}, action) => {

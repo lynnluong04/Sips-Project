@@ -18,7 +18,7 @@ const AllBusinesses = () => {
 
     if (!businesses) {
         return null;
-      }
+    }
 
     return (
 

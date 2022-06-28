@@ -7,6 +7,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import AllBusinesses from "./components/AllBusinesses";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import BusinessDetail from "./components/BusinessDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/businesses">
             <AllBusinesses />
+          </Route>
+          <Route exact path='/businesses/:businessId'>
+            <BusinessDetail />
           </Route>
         </Switch>
       )}
