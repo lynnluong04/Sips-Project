@@ -19,7 +19,19 @@ function App() {
 
   return (
     <>
+
       <Navigation isLoaded={isLoaded} />
+        <Switch>
+          <Route exact path="/businesses">
+            <AllBusinesses />
+          </Route>
+          <Route exact path='/businesses/new'>
+            <CreateBusinessForm />
+          </Route>
+          <Route exact path='/businesses/:businessId'>
+            <BusinessDetail />
+          </Route>
+        </Switch>
       {isLoaded && (
         <Switch>
           <Route exact path="/login">
@@ -28,15 +40,8 @@ function App() {
           <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/businesses">
-            <AllBusinesses />
-          </Route>
-          <Route exact path='businesses/new'>
-            <CreateBusinessForm />
-          </Route>
-          <Route exact path='/businesses/:businessId'>
-            <BusinessDetail />
-          </Route>
+
+
         </Switch>
       )}
     </>

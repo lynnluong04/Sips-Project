@@ -30,7 +30,7 @@ const CreateBusinessForm = () => {
     const updateCategory = (e) => setCategory(e.target.value);
     const updateWebsiteUrl = (e) => setWebsiteUrl(e.target.value);
 
-    async function onSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         const payload = {
@@ -52,45 +52,46 @@ const CreateBusinessForm = () => {
     return (
         <>
             <h2>Add your business</h2>
-            <form className='create-business-form'>
+            <form className='create-business-form' onSubmit={handleSubmit}>
                 <label>
                     Name of your business
-                    <input type='text' name='name' />
+                    <input type='text' name='name' value={name} onChange={updateName}/>
                 </label>
                 <label>
                     Description
-                    <input type='text' name='description' />
+                    <input type='text' name='description' value={description} onChange={updateDescription}/>
                 </label>
                 <label>
                     Address
-                    <input type='text' name='address' />
+                    <input type='text' name='address' value={address} onChange={updateAddress}/>
                 </label>
                 <label>
                     City
-                    <input type='text' name='city' />
+                    <input type='text' name='city' value={city} onChange={updateCity}/>
                 </label>
                 <label>
                     State
-                    <input type='text' name='state' />
+                    <input type='text' name='state' value={state} onChange={updateState}/>
                 </label>
                 <label>
                     Zipcode
-                    <input type='text' name='zipcode' />
+                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode}/>
                 </label>
                 <label>
-                    <select>
-                        {categories.map(type => {
+                    Category
+                    <select value={category} onChange={updateCategory}>
+                        {categories.map(type =>
                             <option key={type}>{type}</option>
-                        })}
+                        )}
                     </select>
                 </label>
                 <label>
                     Phone Number
-                    <input type='text' name='phone' />
+                    <input type='text' name='phone' value={phone} onChange={updatePhone}/>
                 </label>
                 <label>
                     Website Url
-                    <input type='text' name='websiteUrl' />
+                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl}/>
                 </label>
                 <button type="submit">Add your business</button>
                 <button type="button">Cancel</button>

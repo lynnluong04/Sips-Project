@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { thunkGetOneBusiness } from '../../store/business';
+import { thunkGetBusinesses } from '../../store/business';
 import { useParams } from 'react-router-dom';
 
 const BusinessDetail = () => {
@@ -11,7 +11,7 @@ const BusinessDetail = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(thunkGetOneBusiness(businessId))
+        dispatch(thunkGetBusinesses(businessId))
     }, []);
 
     return (

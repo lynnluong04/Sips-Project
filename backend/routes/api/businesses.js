@@ -9,7 +9,7 @@ const businesses = await Business.findAll();
 return res.json(businesses)
 }));
 
-router.post('/', asyncHandler(async function (req, res) {
+router.post('/new', asyncHandler(async function (req, res) {
       const business = await Business.create(req.body);
       return res.json(business)
     })
