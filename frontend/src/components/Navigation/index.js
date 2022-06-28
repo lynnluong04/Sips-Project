@@ -26,6 +26,9 @@ function Navigation({ isLoaded }){
       <li>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
+        <NavLink exact to='/businesses'>Businesses</NavLink>
+        <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
+
       </li>
     </ul>
   );
