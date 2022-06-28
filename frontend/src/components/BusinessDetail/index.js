@@ -7,14 +7,15 @@ import { useParams } from 'react-router-dom';
 
 const BusinessDetail = () => {
     const { businessId } = useParams();
-    const business = useSelector(state => state.business[businessId]);
+    const business = useSelector(state => state.business[businessId]); //This gets the business
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(thunkGetBusinesses(businessId))
+        dispatch(thunkGetBusinesses())
     }, []);
 
     return (
+    
         < div >
             <h2>{business?.name}</h2>
             <div>{business?.description}</div>

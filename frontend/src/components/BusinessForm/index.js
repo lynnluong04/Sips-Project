@@ -8,6 +8,7 @@ const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 const CreateBusinessForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -34,6 +35,7 @@ const CreateBusinessForm = () => {
         e.preventDefault();
 
         const payload = {
+            userId: sessionUser.id,
             name,
             description,
             address,
@@ -46,7 +48,7 @@ const CreateBusinessForm = () => {
         };
 
         let createdBusiness = await dispatch(thunkCreateBusiness(payload))
-        history.push(`/businesses/${createdBusiness.id}`)
+        // history.push(`/businesses/${createdBusiness.id}`)
     }
 
     return (

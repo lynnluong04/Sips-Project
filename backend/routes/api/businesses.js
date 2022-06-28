@@ -10,6 +10,8 @@ return res.json(businesses)
 }));
 
 router.post('/new', asyncHandler(async function (req, res) {
+
+      console.log("REQBODYYYY", req.body)
       const business = await Business.create(req.body);
       return res.json(business)
     })
