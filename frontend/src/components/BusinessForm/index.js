@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+//components/BusinessForm
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
-import { thunkCreateBusiness, thunkGetBusinesses } from '../../store/business';
+import { useHistory } from 'react-router-dom';
+import { thunkCreateBusiness } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
@@ -48,7 +49,10 @@ const CreateBusinessForm = () => {
         };
 
         let createdBusiness = await dispatch(thunkCreateBusiness(payload))
-        history.push(`/businesses/${createdBusiness.id}`)
+
+        if(createdBusiness) {
+            history.push(`/businesses/${createdBusiness.id}`)
+        }
     }
 
     const handleCancelClick = (e) => {
