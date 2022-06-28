@@ -4,8 +4,11 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import AllBusinesses from "./components/AllBusinesses";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import BusinessDetail from "./components/BusinessDetail";
+import CreateBusinessForm from "./components/BusinessForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,15 +19,29 @@ function App() {
 
   return (
     <>
+
       <Navigation isLoaded={isLoaded} />
+        <Switch>
+          <Route exact path="/businesses">
+            <AllBusinesses />
+          </Route>
+          <Route exact path='/businesses/new'>
+            <CreateBusinessForm />
+          </Route>
+          <Route exact path='/businesses/:businessId'>
+            <BusinessDetail />
+          </Route>
+        </Switch>
       {isLoaded && (
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
+
+
         </Switch>
       )}
     </>

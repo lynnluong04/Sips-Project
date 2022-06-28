@@ -48,7 +48,14 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Business, {
+      foreignKey: 'userId',
+      onDelete: 'cascade',
+      // hooks: true what is this for
+    })
+    User.hasMany(models.Review, {
+      foreignKey: 'userId'
+    })
   };
 
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
@@ -87,4 +94,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return User;
 };
-
