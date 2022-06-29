@@ -41,9 +41,8 @@ export const thunkCreateReview = (reviewData) => async (dispatch) => {
     }
 }
 
-export const thunkGetReviews = () => async (dispatch) => {
+export const thunkGetReviews = (userId) => async (dispatch) => {
     const response = await csrfFetch('/api/reviews');
-
     if (response.ok) {
         const list = await response.json();
         dispatch(actionGetReviews(list));
