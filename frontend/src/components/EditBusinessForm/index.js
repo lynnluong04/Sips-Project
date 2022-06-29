@@ -8,8 +8,8 @@ const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
 const EditBusinessForm = ({business, hideForm}) => {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const sessionUser = useSelector(state => state.session.user);
+    // const history = useHistory();
+    // const sessionUser = useSelector(state => state.session.user);
 
     const [name, setName] = useState(business.name);
     const [description, setDescription] = useState(business.description);
@@ -30,6 +30,10 @@ const EditBusinessForm = ({business, hideForm}) => {
     const updatePhone = (e) => setPhone(e.target.value);
     const updateCategory = (e) => setCategory(e.target.value);
     const updateWebsiteUrl = (e) => setWebsiteUrl(e.target.value);
+
+    useEffect(() => {
+        dispatch(thunkGetBusinesses())
+    }, []);
 
     async function handleSubmit(e) {
         e.preventDefault();

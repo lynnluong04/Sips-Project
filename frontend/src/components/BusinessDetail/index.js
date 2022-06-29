@@ -22,7 +22,8 @@ const BusinessDetail = () => {
 
     useEffect(() => {
         dispatch(thunkGetBusinesses())
-    }, []);
+    }, [dispatch, business]);
+
 
     let content = null;
     if (showEditBusiness) {

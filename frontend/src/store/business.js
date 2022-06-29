@@ -8,9 +8,9 @@ const CREATE_BUSINESS = 'businesses/createBusiness'
 //READ
 const GET_BUSINESSES = 'businesses/getBusinesses'
 //UPDATE
-const UPDATE_BUSINESS = 'businesses/updateBusinesses'
+const UPDATE_BUSINESS = 'businesses/updateBusiness'
 //DELETE
-const DELETE_BUSINESS = 'businesses/deleteBusinesses'
+const DELETE_BUSINESS = 'businesses/deleteBusiness'
 
 // todo action creators
 const actionCreateBusiness = (business) => {
@@ -27,7 +27,7 @@ const actionGetBusinesses = (businesses) => {
 }
 const actionUpdateBusiness = (business) => {
     return {
-        type: GET_BUSINESSES,
+        type: UPDATE_BUSINESS,
         business
     }
 }
@@ -99,27 +99,29 @@ export const thunkDeleteBusiness = (businessId) => async (dispatch) =>{
 
 // todo reducers (slice of state)
 const businessReducer = (state = {}, action) => {
-    let newState = {}
+
     switch (action.type) {
         case GET_BUSINESSES:
+            const newState1 = {}
             action.businesses.forEach(business => {
-                newState[business.id] = business
+                newState1[business.id] = business
             });
-            return newState
+            return newState1
 
         case CREATE_BUSINESS:
-            newState[action.business.id] = action.business
-            return newState
+            const newState2 = {...state}
+            newState2[action.business.id] = action.business
+            return newState2
 
         case UPDATE_BUSINESS:
-            newState = { ...state }
-            newState[action.business.id] = action.business
-            return newState
+            const newState3 = { ...state }
+            newState3[action.business.id] = action.business
+            return newState3
 
         case DELETE_BUSINESS:
-            newState = {...state}
-            delete newState[action.businessId]
-            return newState
+            const newState4 = {...state}
+            delete newState4[action.businessId]
+            return newState4
 
         default:
             return state;
