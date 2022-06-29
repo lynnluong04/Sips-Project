@@ -35,7 +35,7 @@ const CreateBusinessForm = () => {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const payload = {
+        const businessData = {
             userId: sessionUser.id,
             name,
             description,
@@ -48,7 +48,7 @@ const CreateBusinessForm = () => {
             websiteUrl
         };
 
-        let createdBusiness = await dispatch(thunkCreateBusiness(payload))
+        let createdBusiness = await dispatch(thunkCreateBusiness(businessData))
 
         if(createdBusiness) {
             history.push(`/businesses/${createdBusiness.id}`)

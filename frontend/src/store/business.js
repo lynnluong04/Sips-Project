@@ -8,6 +8,7 @@ const CREATE_BUSINESS = 'businesses/createBusiness'
 //READ
 const GET_BUSINESSES = 'businesses/getBusinesses'
 //UPDATE
+const UPDATE_BUSINESS = 'businesses/updateBusinesses'
 //DELETE
 
 
@@ -22,6 +23,12 @@ const actionGetBusinesses = (businesses) => {
     return {
         type: GET_BUSINESSES,
         businesses
+    }
+}
+const actionUpdateBusiness = (business) => {
+    return {
+        type: GET_BUSINESSES,
+        business
     }
 }
 
@@ -54,6 +61,22 @@ export const thunkGetBusinesses = () => async (dispatch) => {
     }
 }
 
+export const thunkUpdateBusiness = (businessData) => async (dispatch) => {
+    const response = await csrfFetch(`/api/businesses/:businessId`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(businessData)
+    })
+
+    if (response.ok) {
+        const business = await response.json()
+        dispatch(actionUpdateBusiness(business))
+        return business;
+    }
+}
+
 // todo reducers (slice of state)
 const businessReducer = (state = {}, action) => {
     let newState = {}
@@ -65,6 +88,11 @@ const businessReducer = (state = {}, action) => {
             return newState
 
         case CREATE_BUSINESS:
+            newState[action.business.id] = action.business
+            return newState
+
+        case UPDATE_BUSINESS:
+            newState = { ...state }
             newState[action.business.id] = action.business
             return newState
 

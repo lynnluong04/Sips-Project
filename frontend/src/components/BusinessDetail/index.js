@@ -1,9 +1,10 @@
 //components/BusinessDetail
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkGetBusinesses } from '../../store/business';
 import { useParams } from 'react-router-dom';
+import EditBusinessForm from '../EditBusinessForm';
 
 const BusinessDetail = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -11,13 +12,22 @@ const BusinessDetail = () => {
     const business = useSelector(state => state.business[businessId]); //This gets the business
     const dispatch = useDispatch();
 
-    if (sessionUser) {
-        console.log(typeof parseInt(businessId, 10))
-    }
+    const [showEditBusiness, setShowEditBusiness] = useState(false)
+
+    // if (sessionUser) {
+    //     console.log(typeof parseInt(businessId, 10))
+    // }
 
     useEffect(() => {
         dispatch(thunkGetBusinesses())
     }, []);
+
+    let editForm = null;
+    if (showEditBusiness) {
+        editForm = (
+            <EditBusinessForm business={business} hideForm={() => setShowEditBusiness(false)}/>
+        )
+    }
 
 
     return (
@@ -29,8 +39,8 @@ const BusinessDetail = () => {
             <div>{business?.address} New York, NY {business?.zipcode} </div>
             <div>{business?.websiteUrl}</div>
 
-
-
+            <button onClick={() => setShowEditBusiness(true)}>Edit</button>
+            {editForm}
         </div >
 
     )
