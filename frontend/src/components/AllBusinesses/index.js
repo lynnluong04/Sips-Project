@@ -24,7 +24,7 @@ const AllBusinesses = () => {
 
         <>
             <h2> Find the best drinks in New York, NY </h2>
-            {(businesses).map((business) => {
+            {businesses && (businesses).map((business) => {
                 return (
                     <Link key={business.name} to={`/businesses/${business.id}`}>
                         <div>

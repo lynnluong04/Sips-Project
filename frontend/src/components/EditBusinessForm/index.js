@@ -1,8 +1,8 @@
 // components/EditBusinessForm
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { thunkUpdateBusiness } from '../../store/business';
+import { useHistory, useParams } from 'react-router-dom';
+import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
@@ -49,9 +49,9 @@ const EditBusinessForm = ({business, hideForm}) => {
         };
         const updatedBusiness = await dispatch(thunkUpdateBusiness(businessData))
 
-        if(updatedBusiness) {
-            hideForm();
-        }
+            if(updatedBusiness) {
+                hideForm();
+            }
     }
 
     const handleCancelClick = (e) => {
