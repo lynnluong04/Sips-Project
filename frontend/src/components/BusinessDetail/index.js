@@ -15,10 +15,6 @@ const BusinessDetail = () => {
 
     const [showEditBusiness, setShowEditBusiness] = useState(false)
 
-    // if (sessionUser) {
-    //     console.log(typeof parseInt(businessId, 10))
-    // }
-
     async function onDelete() {
         await dispatch(thunkDeleteBusiness(business.id))
         await history.push('/businesses')
@@ -42,12 +38,18 @@ const BusinessDetail = () => {
                 <div>{business?.address} New York, NY {business?.zipcode} </div>
                 <div>{business?.websiteUrl}</div>
 
-                <button onClick={() => setShowEditBusiness(true)}>Update Your Business</button>
-                <button onClick={()=> onDelete()}>Delete Your Business </button>
+                {sessionUser?.id === business?.userId &&
+                    (
+                    <div>
+                        <button onClick={() => setShowEditBusiness(true)}>Update Your Business</button>
+                        <button onClick={()=> onDelete()}>Delete Your Business </button>
+                    </div>
+                    )
+                }
+
             </>
         )
     }
-
 
     return (
 
