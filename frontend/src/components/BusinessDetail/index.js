@@ -22,7 +22,7 @@ const BusinessDetail = () => {
 
     useEffect(() => {
         dispatch(thunkGetBusinesses())
-    }, [dispatch, business]);
+    }, [dispatch]);
 
 
     let content = null;
