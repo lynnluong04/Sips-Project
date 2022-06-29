@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/:businessId', asyncHandler(async (req, res) => {
     console.log("CONSOLE LOG!!", req.params)
     const reviews = await Review.findAll({
-
+        where: {businessId: req.params.businessId}
     });
     return res.json(reviews)
     }));

@@ -26,7 +26,7 @@ const AllReviews = () => {
             <h2> Reviews </h2>
             {reviews && (reviews).map((review) => {
                 return (
-                    <div>
+                    <div key={review.id}>
                         <div>{review.title}</div>
                         <div>{review.description}</div>
                         <div>{review.rating}</div>
