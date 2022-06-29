@@ -1,27 +1,58 @@
 //components/BusinessDetail
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { thunkGetBusinesses } from '../../store/business';
-import { useParams } from 'react-router-dom';
+import { thunkGetBusinesses, thunkDeleteBusiness } from '../../store/business';
+import { useParams, useHistory } from 'react-router-dom';
+import EditBusinessForm from '../EditBusinessForm';
 
 const BusinessDetail = () => {
+    const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory()
     const { businessId } = useParams();
     const business = useSelector(state => state.business[businessId]); //This gets the business
     const dispatch = useDispatch();
+
+    const [showEditBusiness, setShowEditBusiness] = useState(false)
+
+    // if (sessionUser) {
+    //     console.log(typeof parseInt(businessId, 10))
+    // }
+
+    async function onDelete() {
+        await dispatch(thunkDeleteBusiness(business.id))
+        await history.push('/businesses')
+    }
 
     useEffect(() => {
         dispatch(thunkGetBusinesses())
     }, []);
 
+    let content = null;
+    if (showEditBusiness) {
+        content = (
+            <EditBusinessForm business={business} hideForm={() => setShowEditBusiness(false)} />
+        )
+    } else {
+        content = (
+            <>
+                <h2>{business?.name}</h2>
+                <div>{business?.description}</div>
+                <div>{business?.phone}</div>
+                <div>{business?.address} New York, NY {business?.zipcode} </div>
+                <div>{business?.websiteUrl}</div>
+
+                <button onClick={() => setShowEditBusiness(true)}>Update Your Business</button>
+                <button onClick={()=> onDelete()}>Delete Your Business </button>
+            </>
+        )
+    }
+
+
     return (
-    
+
         < div >
-            <h2>{business?.name}</h2>
-            <div>{business?.description}</div>
-            <div>{business?.phone}</div>
-            <div>{business?.address} New York, NY {business?.zipcode} </div>
-            <div>{business?.websiteUrl}</div>
+            {content}
         </div >
 
     )

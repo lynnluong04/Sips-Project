@@ -11,6 +11,7 @@ function ProfileButton({ user }) {
     setShowMenu(true);
   };
 
+  
   useEffect(() => {
     if (!showMenu) return;
 

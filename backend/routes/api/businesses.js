@@ -10,8 +10,6 @@ return res.json(businesses)
 }));
 
 router.post('/new', asyncHandler(async function (req, res) {
-
-      console.log("REQBODYYYY", req.body)
       const business = await Business.create(req.body);
       return res.json(business)
     })
@@ -19,8 +17,21 @@ router.post('/new', asyncHandler(async function (req, res) {
 
 router.get('/:businessId', asyncHandler(async (req, res) => {
     const business = await Business.findByPk(req.params.id);
+    console.log("REQQQQQQQ". req.params.id)
     return res.json(business)
 }));
 
+router.put('/:businessId', asyncHandler(async (req, res) => {
+    const business = await Business.update(req.body, {
+      where: {id:req.body.id}
+    })
+    return res.json(business)
+}));
+
+router.delete('/:businessId', asyncHandler(async (req, res) => {
+  const business = await Business.findByPk(req.params.businessId);
+  await business.destroy()
+  return res.json({message: "success"})
+}));
 
 module.exports = router;

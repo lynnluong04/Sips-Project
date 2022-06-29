@@ -1,26 +1,25 @@
-//components/BusinessForm
-import { useState } from 'react';
+// components/EditBusinessForm
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { thunkCreateBusiness } from '../../store/business';
+import { useHistory, useParams } from 'react-router-dom';
+import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
-const CreateBusinessForm = () => {
+const EditBusinessForm = ({business, hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
 
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [address, setAddress] = useState('');
+    const [name, setName] = useState(business.name);
+    const [description, setDescription] = useState(business.description);
+    const [address, setAddress] = useState(business.address);
     const [city, setCity] = useState('New York');
     const [state, setState] = useState('NY');
-    const [zipcode, setZipcode] = useState('');
-    const [category, setCategory] = useState('');
-    const [phone, setPhone] = useState('');
-    const [websiteUrl, setWebsiteUrl] = useState('');
-    const [errorMessages, setErrorMessages] = useState({});
+    const [zipcode, setZipcode] = useState(business.zipcode);
+    const [category, setCategory] = useState(business.category);
+    const [phone, setPhone] = useState(business.phone);
+    const [websiteUrl, setWebsiteUrl] = useState(business.websiteUrl);
 
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
@@ -36,7 +35,8 @@ const CreateBusinessForm = () => {
         e.preventDefault();
 
         const businessData = {
-            userId: sessionUser.id,
+            ...business,
+            // userId: sessionUser.id,
             name,
             description,
             address,
@@ -47,23 +47,21 @@ const CreateBusinessForm = () => {
             phone,
             websiteUrl
         };
+        const updatedBusiness = await dispatch(thunkUpdateBusiness(businessData))
 
-        let createdBusiness = await dispatch(thunkCreateBusiness(businessData))
-
-        if(createdBusiness) {
-            history.push(`/businesses/${createdBusiness.id}`)
-        }
+            if(updatedBusiness) {
+                hideForm();
+            }
     }
 
     const handleCancelClick = (e) => {
         e.preventDefault();
-       history.push(`/`)
+        hideForm();
       };
 
     return (
         <>
-            <h2>Add your business</h2>
-            <form className='create-business-form' onSubmit={handleSubmit}>
+            <form className='create-business-form' onSubmit={handleSubmit} >
                 <label>
                     Name of your business
                     <input type='text' name='name' value={name} onChange={updateName}/>
@@ -104,11 +102,11 @@ const CreateBusinessForm = () => {
                     Website Url
                     <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl}/>
                 </label>
-                <button type="submit">Add your business</button>
+                <button type="submit">Update your business</button>
                 <button type="button"onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )
 }
 
-export default CreateBusinessForm;
+export default EditBusinessForm;

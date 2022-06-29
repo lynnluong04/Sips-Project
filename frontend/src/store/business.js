@@ -8,8 +8,9 @@ const CREATE_BUSINESS = 'businesses/createBusiness'
 //READ
 const GET_BUSINESSES = 'businesses/getBusinesses'
 //UPDATE
+const UPDATE_BUSINESS = 'businesses/updateBusinesses'
 //DELETE
-
+const DELETE_BUSINESS = 'businesses/deleteBusinesses'
 
 // todo action creators
 const actionCreateBusiness = (business) => {
@@ -24,6 +25,20 @@ const actionGetBusinesses = (businesses) => {
         businesses
     }
 }
+const actionUpdateBusiness = (business) => {
+    return {
+        type: GET_BUSINESSES,
+        business
+    }
+}
+const actionDeleteBusiness = (businessId) => {
+    return {
+        type: DELETE_BUSINESS,
+        businessId
+    }
+}
+
+
 
 // todo thunks
 export const thunkCreateBusiness = (businessData) => async (dispatch) => {
@@ -54,6 +69,34 @@ export const thunkGetBusinesses = () => async (dispatch) => {
     }
 }
 
+export const thunkUpdateBusiness = (businessData) => async (dispatch) => {
+    const response = await csrfFetch(`/api/businesses/:businessId`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(businessData)
+    })
+
+    if (response.ok) {
+        const business = await response.json()
+        dispatch(actionUpdateBusiness(business))
+        return business;
+    }
+}
+
+export const thunkDeleteBusiness = (businessId) => async (dispatch) =>{
+    const response = await csrfFetch(`/api/businesses/${businessId}`, {
+        method: 'DELETE',
+    });
+
+    if (response.ok) {
+        const businessId = await response.json()
+        dispatch(actionDeleteBusiness(businessId))
+        return businessId
+    }
+}
+
 // todo reducers (slice of state)
 const businessReducer = (state = {}, action) => {
     let newState = {}
@@ -66,6 +109,16 @@ const businessReducer = (state = {}, action) => {
 
         case CREATE_BUSINESS:
             newState[action.business.id] = action.business
+            return newState
+
+        case UPDATE_BUSINESS:
+            newState = { ...state }
+            newState[action.business.id] = action.business
+            return newState
+
+        case DELETE_BUSINESS:
+            newState = {...state}
+            delete newState[action.businessId]
             return newState
 
         default:
