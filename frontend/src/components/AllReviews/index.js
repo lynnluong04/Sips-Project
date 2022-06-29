@@ -10,11 +10,11 @@ const AllReviews = () => {
     const { businessId } = useParams()
     const dispatch = useDispatch();
     const reviews = useSelector(state => {
-        return Object.values(state.review);
+        return Object.values(state.reviews);
     });
 
     useEffect(() => {
-        dispatch(thunkGetReviews())
+        dispatch(thunkGetReviews(businessId))
     }, [dispatch])
 
     if (!reviews) {
