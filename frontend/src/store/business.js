@@ -8,9 +8,9 @@ const CREATE_BUSINESS = 'businesses/createBusiness'
 //READ
 const GET_BUSINESSES = 'businesses/getBusinesses'
 //UPDATE
-const UPDATE_BUSINESS = 'businesses/updateBusinesses'
+const UPDATE_BUSINESS = 'businesses/updateBusiness'
 //DELETE
-const DELETE_BUSINESS = 'businesses/deleteBusinesses'
+const DELETE_BUSINESS = 'businesses/deleteBusiness'
 
 // todo action creators
 const actionCreateBusiness = (business) => {
@@ -27,7 +27,7 @@ const actionGetBusinesses = (businesses) => {
 }
 const actionUpdateBusiness = (business) => {
     return {
-        type: GET_BUSINESSES,
+        type: UPDATE_BUSINESS,
         business
     }
 }
