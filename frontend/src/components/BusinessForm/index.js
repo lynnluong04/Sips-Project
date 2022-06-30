@@ -18,7 +18,7 @@ const CreateBusinessForm = () => {
     const [category, setCategory] = useState('');
     const [phone, setPhone] = useState('');
     const [websiteUrl, setWebsiteUrl] = useState('');
-    const [errorMessages, setErrorMessages] = useState({});
+    const [errorMessages, setErrorMessages] = useState([]);
 
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
@@ -27,6 +27,9 @@ const CreateBusinessForm = () => {
     const updatePhone = (e) => setPhone(e.target.value);
     const updateCategory = (e) => setCategory(e.target.value);
     const updateWebsiteUrl = (e) => setWebsiteUrl(e.target.value);
+
+    const validate = () => {
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
