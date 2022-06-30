@@ -33,6 +33,7 @@ function App() {
             <BusinessDetail />
             <AllReviews />
           </Route>
+          <Route>Page not found</Route>
         </Switch>
       {isLoaded && (
         <Switch>
