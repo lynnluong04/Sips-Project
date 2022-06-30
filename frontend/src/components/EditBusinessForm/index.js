@@ -1,11 +1,11 @@
 // components/EditBusinessForm
 import { useState, useEffect } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
-const EditBusinessForm = ({business, hideForm}) => {
+const EditBusinessForm = ({ business, hideForm }) => {
     const dispatch = useDispatch();
 
     const [name, setName] = useState(business.name);
@@ -23,13 +23,30 @@ const EditBusinessForm = ({business, hideForm}) => {
     const updatePhone = (e) => setPhone(e.target.value);
     const updateCategory = (e) => setCategory(e.target.value);
     const updateWebsiteUrl = (e) => setWebsiteUrl(e.target.value);
+    const [validationErrors, setValidationErrors] = useState([]);
 
     useEffect(() => {
         dispatch(thunkGetBusinesses())
     }, []);
 
+    const validate = () => {
+        const validationErrors = []
+        let phoneDigits = phone.replace(/\D/g, '');
+        if (phoneDigits.length !== 10) {
+            validationErrors.push('Please provide a 10-digit Phone number');
+        }
+        let zipcodeDigits = zipcode.trim()
+        const validZip = /(^\d{5}$)/.test(zipcodeDigits)
+        if (!validZip) {
+            validationErrors.push('Please provide a valid zipcode')
+        }
+        return validationErrors;
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
+        const errors = validate();
+        if (errors.length > 0) return setValidationErrors(errors)
 
         const businessData = {
             ...business,
@@ -43,22 +60,27 @@ const EditBusinessForm = ({business, hideForm}) => {
         };
         const updatedBusiness = await dispatch(thunkUpdateBusiness(businessData));
 
-            if(updatedBusiness) {
-                hideForm();
-            }
+        if (updatedBusiness) {
+            hideForm();
+        }
     }
 
     const handleCancelClick = (e) => {
         e.preventDefault();
         hideForm();
-      };
+    };
 
     return (
         <>
             <form className='create-business-form' onSubmit={handleSubmit} >
+                {validationErrors.length > 0 && (
+                    <ul>
+                        {validationErrors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
+                )}
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={name} onChange={updateName}/>
+                    <input type='text' name='name' value={name} onChange={updateName} />
                 </label>
                 <label>
                     Description
@@ -66,12 +88,12 @@ const EditBusinessForm = ({business, hideForm}) => {
                 </label>
                 <label>
                     Address
-                    <input type='text' name='address' value={address} onChange={updateAddress}/>
+                    <input type='text' name='address' value={address} onChange={updateAddress} />
                 </label>
                 <div> New York, NY </div>
                 <label>
                     Zipcode
-                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode}/>
+                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode} />
                 </label>
                 <label>
                     Category
@@ -83,11 +105,11 @@ const EditBusinessForm = ({business, hideForm}) => {
                 </label>
                 <label>
                     Phone Number
-                    <input type='text' name='phone' value={phone} onChange={updatePhone}/>
+                    <input type='text' name='phone' value={phone} onChange={updatePhone} />
                 </label>
                 <label>
                     Website Url
-                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl}/>
+                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} />
                 </label>
                 <button type="submit">Update your business</button>
                 <button type="button" onClick={handleCancelClick}>Cancel</button>
