@@ -1,20 +1,16 @@
 // components/EditBusinessForm
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
 import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
 
 const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
 const EditBusinessForm = ({business, hideForm}) => {
     const dispatch = useDispatch();
-    // const sessionUser = useSelector(state => state.session.user);
 
     const [name, setName] = useState(business.name);
     const [description, setDescription] = useState(business.description);
     const [address, setAddress] = useState(business.address);
-    const [city, setCity] = useState('New York');
-    const [state, setState] = useState('NY');
     const [zipcode, setZipcode] = useState(business.zipcode);
     const [category, setCategory] = useState(business.category);
     const [phone, setPhone] = useState(business.phone);
@@ -23,8 +19,6 @@ const EditBusinessForm = ({business, hideForm}) => {
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updateAddress = (e) => setAddress(e.target.value);
-    const updateCity = (e) => setCity(e.target.value);
-    const updateState = (e) => setState(e.target.value);
     const updateZipcode = (e) => setZipcode(e.target.value);
     const updatePhone = (e) => setPhone(e.target.value);
     const updateCategory = (e) => setCategory(e.target.value);
@@ -39,12 +33,9 @@ const EditBusinessForm = ({business, hideForm}) => {
 
         const businessData = {
             ...business,
-            // userId: sessionUser.id,
             name,
             description,
             address,
-            city,
-            state,
             zipcode,
             category,
             phone,
@@ -77,14 +68,7 @@ const EditBusinessForm = ({business, hideForm}) => {
                     Address
                     <input type='text' name='address' value={address} onChange={updateAddress}/>
                 </label>
-                <label>
-                    City
-                    <input type='text' name='city' value={city} onChange={updateCity}/>
-                </label>
-                <label>
-                    State
-                    <input type='text' name='state' value={state} onChange={updateState}/>
-                </label>
+                <div> New York, NY </div>
                 <label>
                     Zipcode
                     <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode}/>
