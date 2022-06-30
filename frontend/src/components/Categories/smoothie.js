@@ -1,14 +1,11 @@
-//src/components/AllBusinesses/index.js
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkGetBusinesses } from '../../store/business';
 import { Link } from 'react-router-dom';
 
-
-const AllBusinesses = () => {
-
+const AllSmoothie = () => {
     const dispatch = useDispatch();
+
     const businesses = useSelector(state => {
         return Object.values(state.business);
     });
@@ -17,16 +14,12 @@ const AllBusinesses = () => {
         dispatch(thunkGetBusinesses())
     }, [dispatch])
 
-    if (!businesses) {
-        return null;
-    }
-
+    const smoothies = businesses.filter((business) => business.category === "Smoothie")
 
     return (
-
         <>
-            <h2> Find the best drinks in New York, NY </h2>
-            {businesses && (businesses).map((business) => {
+            <h2> Best Bars in New York, NY </h2>
+            {smoothies && (smoothies).map((business) => {
                 return (
                     <Link key={business.name} to={`/businesses/${business.id}`}>
                         <div>
@@ -42,4 +35,4 @@ const AllBusinesses = () => {
     )
 }
 
-export default AllBusinesses;
+export default AllSmoothie;

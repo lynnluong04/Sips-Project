@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
 
-const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
+const categories = ['Bar', 'Bubble Tea', 'Coffee', 'Smoothies', 'Tea'];
 
 const EditBusinessForm = ({ business, hideForm }) => {
     const dispatch = useDispatch();

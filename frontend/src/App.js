@@ -10,6 +10,13 @@ import Navigation from "./components/Navigation";
 import BusinessDetail from "./components/BusinessDetail";
 import CreateBusinessForm from "./components/BusinessForm";
 import AllReviews from "./components/AllReviews";
+import Splash from "./components/Splash";
+import AllBars from "./components/Categories/bar";
+import AllTea from "./components/Categories/tea";
+import AllSmoothie from "./components/Categories/smoothie";
+import AllBoba from "./components/Categories/boba";
+import AllCoffee from "./components/Categories/coffee";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +30,9 @@ function App() {
 
       <Navigation isLoaded={isLoaded} />
         <Switch>
+          <Route exact path='/'>
+            <Splash />
+          </Route>
           <Route exact path="/businesses">
             <AllBusinesses />
           </Route>
@@ -32,6 +42,21 @@ function App() {
           <Route exact path='/businesses/:businessId'>
             <BusinessDetail />
             <AllReviews />
+          </Route>
+          <Route exact path='/bars'>
+            <AllBars />
+          </Route>
+          <Route exact path='/coffee'>
+            <AllCoffee />
+          </Route>
+          <Route exact path='/smoothie'>
+            <AllSmoothie />
+          </Route>
+          <Route exact path='/tea'>
+            <AllTea />
+          </Route>
+          <Route exact path='/bubble-tea'>
+            <AllBoba />
           </Route>
           <Route>Page not found</Route>
         </Switch>
