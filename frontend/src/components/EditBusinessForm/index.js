@@ -8,7 +8,6 @@ const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
 
 const EditBusinessForm = ({business, hideForm}) => {
     const dispatch = useDispatch();
-    // const history = useHistory();
     // const sessionUser = useSelector(state => state.session.user);
 
     const [name, setName] = useState(business.name);
@@ -51,7 +50,7 @@ const EditBusinessForm = ({business, hideForm}) => {
             phone,
             websiteUrl
         };
-        const updatedBusiness = await dispatch(thunkUpdateBusiness(businessData))
+        const updatedBusiness = await dispatch(thunkUpdateBusiness(businessData));
 
             if(updatedBusiness) {
                 hideForm();
@@ -107,7 +106,7 @@ const EditBusinessForm = ({business, hideForm}) => {
                     <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl}/>
                 </label>
                 <button type="submit">Update your business</button>
-                <button type="button"onClick={handleCancelClick}>Cancel</button>
+                <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )

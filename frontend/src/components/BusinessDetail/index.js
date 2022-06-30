@@ -16,6 +16,7 @@ const BusinessDetail = () => {
 
     const [showEditBusiness, setShowEditBusiness] = useState(false)
     const [showReviewForm, setShowReviewForm] = useState(false)
+    
     async function onDelete() {
         await dispatch(thunkDeleteBusiness(business.id))
         await history.push('/businesses')

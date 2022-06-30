@@ -27,7 +27,7 @@ const actionDeleteReview = (reviewId) => {
 
 
 export const thunkCreateReview = (reviewData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews`, {
+    const response = await csrfFetch(`/api/reviews/new`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -57,34 +57,35 @@ export const thunkGetReviews = (businessId) => async (dispatch) => {
 }
 
 export const thunkDeleteReview = (reviewId) => async (dispatch) =>{
-    const response = await csrfFetch(`/api/reviews`, {
+    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE',
     });
 
     if (response.ok) {
-        const reviewId = await response.json()
-        dispatch(actionDeleteReview(reviewId))
-        return reviewId
+        const reviewID = await response.json()
+        dispatch(actionDeleteReview(reviewID))
+        return reviewID
     }
 }
 
 const reviewsReducer = (state = {}, action) => {
-    let newState = {}
     switch (action.type) {
         case GET_REVIEWS:
+            const newState1= {}
             action.reviews.forEach(review => {
-                newState[review.id] = review
+                newState1[review.id] = review
             });
-            return newState
+            return newState1
 
         case CREATE_REVIEW:
-            newState[action.review.id] = action.review
-            return newState
+            const newState2 = {...state}
+            newState2[action.review.id] = action.review
+            return newState2
 
         case DELETE_REVIEW:
-            newState = {...state}
-            delete newState[action.reviewId]
-            return newState
+           const newState3 = {...state}
+            delete newState3[action.reviewId]
+            return newState3
 
         default:
             return state;

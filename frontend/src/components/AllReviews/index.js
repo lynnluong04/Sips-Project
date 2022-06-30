@@ -3,9 +3,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { thunkGetReviews } from "../../store/reviews";
+import { thunkGetReviews, thunkDeleteReview } from "../../store/reviews";
+
 
 const AllReviews = () => {
+    const sessionUser = useSelector(state => state.session.user);
 
     const { businessId } = useParams()
     const dispatch = useDispatch();
@@ -21,6 +23,8 @@ const AllReviews = () => {
         return null;
     }
 
+
+
     return (
         <>
             <h2> Reviews </h2>
@@ -30,6 +34,14 @@ const AllReviews = () => {
                         <div>{review.title}</div>
                         <div>{review.description}</div>
                         <div>{review.rating}</div>
+
+                        {sessionUser?.id === review?.userId &&
+                        (
+                            <button
+                            onClick={async()=> await dispatch(thunkDeleteReview(review.id))}
+                            >Delete Review</button>
+                        )
+                        }
                     </div>
 
                 )
