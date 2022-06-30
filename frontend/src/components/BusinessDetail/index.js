@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { thunkGetBusinesses, thunkDeleteBusiness } from '../../store/business';
 import { useParams, useHistory } from 'react-router-dom';
 import EditBusinessForm from '../EditBusinessForm';
+import CreateReviewForm from '../ReviewForm';
 
 const BusinessDetail = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -14,7 +15,8 @@ const BusinessDetail = () => {
     const dispatch = useDispatch();
 
     const [showEditBusiness, setShowEditBusiness] = useState(false)
-
+    const [showReviewForm, setShowReviewForm] = useState(false)
+    
     async function onDelete() {
         await dispatch(thunkDeleteBusiness(business.id))
         await history.push('/businesses')
@@ -48,9 +50,13 @@ const BusinessDetail = () => {
                     )
                 }
 
+                <button onClick={()=> setShowReviewForm(true)}> Add a Review </button>
+                {showReviewForm && (<CreateReviewForm business={business} hideForm={() => setShowReviewForm(false)}/>)}
             </>
         )
     }
+
+
 
     return (
 
