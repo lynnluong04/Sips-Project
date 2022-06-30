@@ -70,7 +70,7 @@ export const thunkGetBusinesses = () => async (dispatch) => {
 }
 
 export const thunkUpdateBusiness = (businessData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/businesses/:businessId`, {
+    const response = await csrfFetch(`/api/businesses/${businessData.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

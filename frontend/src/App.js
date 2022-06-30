@@ -9,6 +9,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import BusinessDetail from "./components/BusinessDetail";
 import CreateBusinessForm from "./components/BusinessForm";
+import AllReviews from "./components/AllReviews";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route exact path='/businesses/:businessId'>
             <BusinessDetail />
+            <AllReviews />
           </Route>
         </Switch>
       {isLoaded && (
