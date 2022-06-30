@@ -33,14 +33,17 @@ function Navigation({ isLoaded }){
 
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-        <NavLink exact to='/businesses'>Businesses</NavLink>
-        <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
-      </li>
-    </ul>
+    <div className='navbar-container'>
+      <img src=''/>
+      <ul>
+        <li>
+          <NavLink exact to="/">Home</NavLink>
+          {isLoaded && sessionLinks}
+          <NavLink exact to='/businesses'>Businesses</NavLink>
+          <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
+        </li>
+      </ul>
+    </div>
   );
 }
 

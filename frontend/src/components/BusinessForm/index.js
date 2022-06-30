@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkCreateBusiness } from '../../store/business';
 
-const categories = ['bar', 'bubble tea', 'coffee', 'smoothies', 'tea'];
+const categories = ['Bar', 'Bubble Tea', 'Coffee', 'Smoothies', 'Tea'];
 
 const CreateBusinessForm = () => {
     const dispatch = useDispatch();
