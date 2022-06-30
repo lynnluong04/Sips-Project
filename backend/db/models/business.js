@@ -40,7 +40,8 @@ module.exports = (sequelize, DataTypes) => {
      })
      Business.hasMany(models.Review, {
       foreignKey: 'businessId',
-      onDelete: 'cascade'
+      onDelete: 'cascade',
+      hooks: true
     })
   };
   return Business;
