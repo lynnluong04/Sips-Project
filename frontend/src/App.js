@@ -29,37 +29,37 @@ function App() {
     <>
 
       <Navigation isLoaded={isLoaded} />
-        <Switch>
-          <Route exact path='/'>
-            <Splash />
-          </Route>
-          <Route exact path="/businesses">
-            <AllBusinesses />
-          </Route>
-          <Route exact path='/businesses/new'>
-            <CreateBusinessForm />
-          </Route>
-          <Route exact path='/businesses/:businessId'>
-            <BusinessDetail />
-            <AllReviews />
-          </Route>
-          <Route exact path='/bars'>
-            <AllBars />
-          </Route>
-          <Route exact path='/coffee'>
-            <AllCoffee />
-          </Route>
-          <Route exact path='/smoothie'>
-            <AllSmoothie />
-          </Route>
-          <Route exact path='/tea'>
-            <AllTea />
-          </Route>
-          <Route exact path='/bubble-tea'>
-            <AllBoba />
-          </Route>
-          <Route>Page not found</Route>
-        </Switch>
+      <Switch>
+        <Route exact path='/'>
+          <Splash />
+        </Route>
+        <Route exact path="/businesses">
+          <AllBusinesses />
+        </Route>
+        <Route exact path='/businesses/new'>
+          <CreateBusinessForm />
+        </Route>
+        <Route exact path='/businesses/:businessId'>
+          <BusinessDetail />
+          <AllReviews />
+        </Route>
+        <Route exact path='/bars'>
+          <AllBars />
+        </Route>
+        <Route exact path='/coffee'>
+          <AllCoffee />
+        </Route>
+        <Route exact path='/smoothie'>
+          <AllSmoothie />
+        </Route>
+        <Route exact path='/tea'>
+          <AllTea />
+        </Route>
+        <Route exact path='/bubble-tea'>
+          <AllBoba />
+        </Route>
+        <Route>Page not found</Route>
+      </Switch>
       {isLoaded && (
         <Switch>
           <Route exact path="/login">
