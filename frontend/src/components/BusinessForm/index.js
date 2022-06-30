@@ -18,7 +18,7 @@ const CreateBusinessForm = () => {
     const [category, setCategory] = useState('');
     const [phone, setPhone] = useState('');
     const [websiteUrl, setWebsiteUrl] = useState('');
-    const [errorMessages, setErrorMessages] = useState([]);
+    const [validationErrors, setValidationErrors] = useState([]);
 
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
@@ -28,11 +28,33 @@ const CreateBusinessForm = () => {
     const updateCategory = (e) => setCategory(e.target.value);
     const updateWebsiteUrl = (e) => setWebsiteUrl(e.target.value);
 
+    const reset = () => {
+        setName('');
+        setDescription('');
+        setAddress('');
+        setZipcode('');
+        setPhone('')
+        setWebsiteUrl('');
+    }
+
     const validate = () => {
+        const validationErrors = []
+        let phoneDigits = phone.replace(/\D/g, '');
+        if (phoneDigits.length !== 10) {
+            validationErrors.push('Please provide a 10-digit Phone number');
+        }
+        let zipcodeDigits = zipcode.trim()
+        const validZip = /(^\d{5}$)/.test(zipcodeDigits)
+        if(!validZip) {
+            validationErrors.push('Please provide a valid zipcode')
+        }
+        return validationErrors;
     }
 
     async function handleSubmit(e) {
         e.preventDefault();
+        const errors = validate();
+        if (errors.length > 0) return setValidationErrors(errors)
 
         const businessData = {
             userId: sessionUser.id,
@@ -45,42 +67,50 @@ const CreateBusinessForm = () => {
             websiteUrl
         };
 
+
         let createdBusiness = await dispatch(thunkCreateBusiness(businessData))
 
-        if(createdBusiness) {
+        if (createdBusiness) {
+            reset()
             history.push(`/businesses/${createdBusiness.id}`)
         }
     }
 
     const handleCancelClick = (e) => {
         e.preventDefault();
-       history.push(`/`)
-      };
+        history.push(`/`)
+    };
 
     return (
         <>
             <h2>Add your business</h2>
+            {validationErrors.length > 0 && (
+                <ul>
+                    {validationErrors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+            )}
             <form className='create-business-form' onSubmit={handleSubmit}>
                 <label>
                     Name of your business
-                    <input type='text' name='name' value={name} onChange={updateName}/>
+                    <input type='text' name='name' value={name} onChange={updateName} required />
                 </label>
                 <label>
                     Description
-                    <input type='text' name='description' value={description} onChange={updateDescription}/>
+                    <textarea name='description' value={description} onChange={updateDescription} required ></textarea>
                 </label>
                 <label>
                     Address
-                    <input type='text' name='address' value={address} onChange={updateAddress}/>
+                    <input type='text' name='address' value={address} onChange={updateAddress} required />
                 </label>
                 <div> New York, NY </div>
                 <label>
                     Zipcode
-                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode}/>
+                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode} placeholder="5 digit zipcode" required />
                 </label>
                 <label>
                     Category
                     <select value={category} onChange={updateCategory}>
+                        <option disabled>Please select category</option>
                         {categories.map(type =>
                             <option key={type}>{type}</option>
                         )}
@@ -88,14 +118,14 @@ const CreateBusinessForm = () => {
                 </label>
                 <label>
                     Phone Number
-                    <input type='text' name='phone' value={phone} onChange={updatePhone}/>
+                    <input type='text' name='phone' value={phone} onChange={updatePhone} required placeholder=' e.g. (123) 456-7890'/>
                 </label>
                 <label>
                     Website Url
-                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl}/>
+                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} placeholder="Optional" />
                 </label>
                 <button type="submit">Add your business</button>
-                <button type="button"onClick={handleCancelClick}>Cancel</button>
+                <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )

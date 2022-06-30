@@ -62,7 +62,7 @@ const EditBusinessForm = ({business, hideForm}) => {
                 </label>
                 <label>
                     Description
-                    <input type='text' name='description' value={description} onChange={updateDescription}/>
+                    <textarea name='description' value={description} onChange={updateDescription}></textarea>
                 </label>
                 <label>
                     Address
