@@ -6,11 +6,16 @@ const { Business, Review } = require('../../db/models');
 const router = express.Router();
 
 router.get('/:businessId', asyncHandler(async (req, res) => {
-    console.log("CONSOLE LOG!!", req.params)
     const reviews = await Review.findAll({
         where: {businessId: req.params.businessId}
     });
     return res.json(reviews)
     }));
 
+
+router.post('/new', asyncHandler(async function (req, res) {
+      const review = await Review.create(req.body);
+      return res.json(review)
+    })
+  );
 module.exports = router;
