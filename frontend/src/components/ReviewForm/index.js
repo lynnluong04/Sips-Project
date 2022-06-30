@@ -44,15 +44,15 @@ const CreateReviewForm = ({ business, hideForm }) => {
             <form className='create-review-form' onSubmit={handleSubmit}>
                 <label>
                     Title
-                    <input type='text' name='title'onChange={updateTitle}></input>
+                    <input type='text' name='title'onChange={updateTitle} required></input>
                 </label>
                 <label>
                     Description
-                    <textarea onChange={updateDescription} value={description}></textarea>
+                    <textarea onChange={updateDescription} value={description} required></textarea>
                 </label>
                 <label>
                     Rating
-                    <select onChange={updateRating} value={rating}>
+                    <select onChange={updateRating} value={rating} required>
                         <option disabled></option>
                         <option>1</option>
                         <option>2</option>
