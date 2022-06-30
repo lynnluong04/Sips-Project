@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Business, {
       foreignKey: 'userId',
       onDelete: 'cascade',
-      // hooks: true what is this for
+      hooks: true
     })
     User.hasMany(models.Review, {
       foreignKey: 'userId'
