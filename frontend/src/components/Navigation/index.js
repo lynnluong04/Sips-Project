@@ -38,7 +38,7 @@ function Navigation({ isLoaded }){
       <ul className='navbar'>
         <li className='navbar'>
           <div className='navbar-right'>
-            <NavLink exact to="/"> <img className='sips-logo' src='https://www.linkpicture.com/q/sips-blueblack-logo.png'/> </NavLink>
+            <NavLink exact to="/"> <img className='sips-logo' src='https://www.linkpicture.com/q/sipslogo-blue.png'/> </NavLink>
             <NavLink exact to='/businesses'>Businesses</NavLink>
             <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
           </div>

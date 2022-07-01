@@ -1,3 +1,8 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
 #root {
     width: 100%;
     margin-right: 0;
@@ -35,9 +40,6 @@ li.navbar::marker {
 }
 
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 .nav-button {
     padding: 8px 16px;
@@ -59,15 +61,15 @@ body {
 }
 
 #signup-button {
-    background-color: rgba(78, 117, 251, 1);
+    background-color: rgb(1, 194, 220);
     color: white;
-    border: 1px solid rgba(78, 117, 251, 1);
+    border: 1px solid rgb(1, 194, 220);
 }
 
 #categories-container {
     display: flex;
     justify-content: center;
-    
+
 
 }
 
