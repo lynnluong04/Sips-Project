@@ -72,7 +72,7 @@ const EditBusinessForm = ({ business, hideForm }) => {
 
     return (
         <>
-            <form className='create-business-form' onSubmit={handleSubmit} >
+            <form className='edit business form' onSubmit={handleSubmit} >
                 {validationErrors.length > 0 && (
                     <ul>
                         {validationErrors.map(error => <li key={error}>{error}</li>)}
@@ -89,8 +89,8 @@ const EditBusinessForm = ({ business, hideForm }) => {
                 <label>
                     Address
                     <input type='text' name='address' value={address} onChange={updateAddress} />
+                    New York, NY
                 </label>
-                <div> New York, NY </div>
                 <label>
                     Zipcode
                     <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode} />
@@ -111,8 +111,8 @@ const EditBusinessForm = ({ business, hideForm }) => {
                     Website Url
                     <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} />
                 </label>
-                <button type="submit">Update your business</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className="submit update" type="submit">Update your business</button>
+                <button className="cancel button" type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )

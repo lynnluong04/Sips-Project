@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import * as sessionActions from '../../store/session';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded, isHome }){
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const credential = 'Demo-lition';
@@ -23,7 +23,7 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <button  className='nav-button' id="demo-button" onClick={DemoLogin}>Demo User</button>
+        <button  className={isHome?'navhome-button':'nav-button'} id="demo-button" onClick={DemoLogin}>Demo User</button>
         <NavLink to="/login" className='nav-button' id='login-button'>Log In</NavLink>
         <NavLink to="/signup" className='nav-button' id='signup-button'>Sign Up</NavLink>
       </>
@@ -39,8 +39,8 @@ function Navigation({ isLoaded }){
         <li className='navbar'>
           <div className='navbar-right'>
             <NavLink exact to="/"> <img className='sips-logo' src='https://www.linkpicture.com/q/sipslogo-blue.png'/> </NavLink>
-            <NavLink exact to='/businesses'>Businesses</NavLink>
-            <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
+            <NavLink exact to='/businesses' className="all businesses">Businesses</NavLink>
+            <NavLink exact to={sessionUser?'/businesses/new': '/login'} className="add business">Add Your Business!</NavLink>
           </div>
           <div className='navbar-left'>
             {isLoaded && sessionLinks}

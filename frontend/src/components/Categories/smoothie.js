@@ -17,21 +17,26 @@ const AllSmoothie = () => {
     const smoothies = businesses.filter((business) => business.category === "Smoothie")
 
     return (
-        <>
-            <h2> Best Smoothies in New York, NY </h2>
-            {smoothies && (smoothies).map((business) => {
-                return (
-                    <Link key={business.name} to={`/businesses/${business.id}`}>
-                        <div>
-                            <div>{business.name}</div>
-                            <div>{business.phone}</div>
-                            <div>{business.address} New York, NY {business.zipcode} </div>
-                            <div>Avg Rating goes here soon</div>
+        <div className='outer business container'>
+            <h2 className='listing title'> Best Smoothies in New York, NY </h2>
+            <div className='inner business container'>
+                {smoothies && (smoothies).map((business) => {
+                    return (
+                        <div className='each business container'>
+
+                            <Link key={business.name} to={`/businesses/${business.id}`}>
+                                <div>
+                                    <div>{business.name}</div>
+                                    <div>{business.phone}</div>
+                                    <div>{business.address} New York, NY {business.zipcode} </div>
+                                    <div>Avg Rating goes here soon</div>
+                                </div>
+                            </Link>
                         </div>
-                    </Link>
-                )
-            })}
-        </>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
 

@@ -16,7 +16,7 @@ const BusinessDetail = () => {
 
     const [showEditBusiness, setShowEditBusiness] = useState(false)
     const [showReviewForm, setShowReviewForm] = useState(false)
-    
+
     async function onDelete() {
         await dispatch(thunkDeleteBusiness(business.id))
         await history.push('/businesses')
@@ -34,7 +34,7 @@ const BusinessDetail = () => {
         )
     } else {
         content = (
-            <>
+            <div >
                 <h2>{business?.name}</h2>
                 <div>{business?.description}</div>
                 <div>{business?.phone}</div>
@@ -44,15 +44,15 @@ const BusinessDetail = () => {
                 {sessionUser?.id === business?.userId &&
                     (
                     <div>
-                        <button onClick={() => setShowEditBusiness(true)}>Update Your Business</button>
-                        <button onClick={()=> onDelete()}>Delete Your Business </button>
+                        <button className='update business' onClick={() => setShowEditBusiness(true)}>Update Your Business</button>
+                        <button className='delete business' onClick={()=> onDelete()}>Delete Your Business </button>
                     </div>
                     )
                 }
 
-                <button onClick={()=> setShowReviewForm(true)}> Add a Review </button>
+                <button onClick={()=> setShowReviewForm(true)} className="add review"> Add a Review </button>
                 {showReviewForm && (<CreateReviewForm business={business} hideForm={() => setShowReviewForm(false)}/>)}
-            </>
+            </div>
         )
     }
 
@@ -60,7 +60,7 @@ const BusinessDetail = () => {
 
     return (
 
-        < div >
+        < div className='business container' >
             {content}
         </div >
 

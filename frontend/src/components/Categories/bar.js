@@ -17,21 +17,25 @@ const AllBars = () => {
     const bars = businesses.filter((business) => business.category === "Bar")
 
     return (
-        <>
-            <h2> Best Bars in New York, NY </h2>
+        <div className='outer business container'>
+            <h2 className='listing title'> Best Bars in New York, NY </h2>
+            <div className='inner business container'>
             {bars && (bars).map((bar) => {
                 return (
-                    <Link key={bar.name} to={`/businesses/${bar.id}`}>
-                        <div>
-                            <div>{bar.name}</div>
-                            <div>{bar.phone}</div>
-                            <div>{bar.address} New York, NY {bar.zipcode} </div>
-                            <div>Avg Rating goes here soon</div>
-                        </div>
-                    </Link>
+                    <div className='each business container'>
+                        <Link key={bar.name} to={`/businesses/${bar.id}`}>
+                            <div>
+                                <div>{bar.name}</div>
+                                <div>{bar.phone}</div>
+                                <div>{bar.address} New York, NY {bar.zipcode} </div>
+                                <div>Avg Rating goes here soon</div>
+                            </div>
+                        </Link>
+                    </div>
                 )
             })}
-        </>
+            </div>
+        </div>
     )
 }
 

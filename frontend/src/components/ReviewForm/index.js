@@ -41,7 +41,7 @@ const CreateReviewForm = ({ business, hideForm }) => {
     return (
         <>
             <h2>Add a review</h2>
-            <form className='create-review-form' onSubmit={handleSubmit}>
+            <form className='create review form' onSubmit={handleSubmit}>
                 <label>
                     Title
                     <input type='text' name='title'onChange={updateTitle} required></input>
@@ -61,8 +61,8 @@ const CreateReviewForm = ({ business, hideForm }) => {
                         <option>5</option>
                     </select>
                 </label>
-                <button type="submit">Submit your review</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className='submit review' type="submit">Submit your review</button>
+                <button className='cancel review' type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )

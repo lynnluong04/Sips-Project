@@ -21,6 +21,7 @@ import AllCoffee from "./components/Categories/coffee";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isHome, setIsHome] = useState(false)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -28,44 +29,44 @@ function App() {
   return (
     <>
 
-      <Navigation isLoaded={isLoaded} />
+      <Navigation isLoaded={isLoaded} isHome={isHome} />
       <Switch>
         <Route exact path='/'>
-          <Splash />
+          <Splash homeNav={()=> setIsHome(true)} />
         </Route>
         <Route exact path="/businesses">
-          <AllBusinesses />
+          <AllBusinesses notHome={()=> setIsHome(false)} />
         </Route>
         <Route exact path='/businesses/new'>
-          <CreateBusinessForm />
+          <CreateBusinessForm notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/businesses/:businessId'>
-          <BusinessDetail />
-          <AllReviews />
+          <BusinessDetail notHome={()=> setIsHome(false)}/>
+          <AllReviews notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/bars'>
-          <AllBars />
+          <AllBars notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/coffee'>
-          <AllCoffee />
+          <AllCoffee notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/smoothie'>
-          <AllSmoothie />
+          <AllSmoothie notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/tea'>
-          <AllTea />
+          <AllTea notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/bubble-tea'>
-          <AllBoba />
+          <AllBoba notHome={()=> setIsHome(false)}/>
         </Route>
       </Switch>
       {isLoaded && (
         <Switch>
           <Route exact path="/login">
-            <LoginFormPage />
+            <LoginFormPage notHome={()=> setIsHome(false)}/>
           </Route>
           <Route exact path="/signup">
-            <SignupFormPage />
+            <SignupFormPage notHome={()=> setIsHome(false)}/>
           </Route>
 
         </Switch>

@@ -1,6 +1,10 @@
 //components/Splash
 import { Link } from "react-router-dom";
-const Splash = () => {
+import './Splash.css'
+
+const Splash = ({homeNav}) => {
+
+homeNav();
 
     return (
         <div id="categories-container">
@@ -28,7 +32,7 @@ const Splash = () => {
                 </Link>
             </div>
             <div className="image-container">
-                <Link to="/smoothie">Smoothie
+                <Link to="/smoothie">Smoothies
                     <img className="category-image" src='https://www.linkpicture.com/q/toddler-smoothies-in-mason-jars.jpeg'></img>
                 </Link>
             </div>
