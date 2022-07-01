@@ -1,5 +1,6 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    color: black;
 }
 
 
@@ -26,7 +27,7 @@ ul.navbar {
 
 li.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 li.navbar a {
@@ -39,6 +40,24 @@ li.navbar::marker {
     color: white;
 }
 
+.navbar-left {
+    margin-right: 40px;
+}
+
+.navbar-right {
+    margin-left: 40px;
+    display: inline-flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.all.businesses,
+.add.business {
+    padding: 15px 15px 0px 15px;
+    margin-top: 15px;
+    text-align: center;
+
+}
 
 
 .nav-button {
@@ -50,6 +69,7 @@ li.navbar::marker {
     box-sizing: border-box;
     margin-left: 15px;
     border-radius: 5px;
+    width: fit-content;
 
 }
 
@@ -64,22 +84,131 @@ li.navbar::marker {
     background-color: rgb(1, 194, 220);
     color: white;
     border: 1px solid rgb(1, 194, 220);
+    width: fit-content;
 }
 
-#categories-container {
+.outer.business {
+    height: 100vh;
+    width: 100vw;
+}
+
+.inner.business {
+    height: 100vh;
+    width: 40%;
+    margin: 10px auto;
     display: flex;
-    justify-content: center;
+    flex-flow: column;
+}
 
+.each.business {
+    margin: 15px 0px 10px 15px;
+    border: 1px solid lightgray;
+    width: 80%;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
 
 }
 
-.image-container {
+.form {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    margin: 30px auto;
+    flex-direction: column;
+    align-items: right;
+}
+
+input, textarea, select {
+    margin-left: 10px;
+}
+
+label {
+    margin: 0 0 20px 0;
+}
+
+button.cancel {
+    padding: 8px 16px;
+    height: 36px;
+    width: fit-content;
+    border: 1px solid lightgray;
+    background-color: lightgray;
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+button.submit, button.update, button.add, button.signup, button.login {
+    padding: 8px 16px;
+    height: 36px;
+    width: fit-content;
+    background-color: rgb(1, 194, 220);
+    border: 1px solid rgb(1, 194, 220);
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: white;
+}
+
+button.logout {
+    padding: 4px 8px;
+    height: 18px;
+    width: fit-content;
+    background-color: rgb(1, 194, 220);
+    border: 1px solid rgb(1, 194, 220);
+    font-size: 8px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: white;
+}
+
+button.delete {
+    padding: 8px 16px;
+    height: 36px;
+    width: fit-content;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+
+
+textarea {
+    width: 350px;
+    overflow-y: scroll;
+    height: 100px;
+}
+
+input {
+    height: 20px;
+    width: 250px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.profile-dropdown {
+    height: 100px;
     width: 150px;
-    height: 120px;
+    padding: 10px;
+    background-color: azure;
+    border-radius: 5px;
+    border: 2px solid lightgray;
 }
 
-.category-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.profile.menu {
+    height: 40px;
+    width: 40px;
+    background-color: rgb(1, 194, 220);
+    border: 1px solid rgb(1, 194, 220);
+    border-radius: 5px;
 }

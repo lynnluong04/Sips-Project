@@ -39,6 +39,7 @@ const AllReviews = () => {
                         (
                             <button
                             onClick={async()=> await dispatch(thunkDeleteReview(review.id))}
+                            className="delete review"
                             >Delete Review</button>
                         )
                         }

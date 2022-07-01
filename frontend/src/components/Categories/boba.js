@@ -17,21 +17,25 @@ const AllBoba = () => {
     const bobas = businesses.filter((business) => business.category === "Bubble Tea")
 
     return (
-        <>
-            <h2> Best Bubble Teas in New York, NY </h2>
-            {bobas && (bobas).map((business) => {
-                return (
-                    <Link key={business.name} to={`/businesses/${business.id}`}>
-                        <div>
-                            <div>{business.name}</div>
-                            <div>{business.phone}</div>
-                            <div>{business.address} New York, NY {business.zipcode} </div>
-                            <div>Avg Rating goes here soon</div>
+        <div className='outer business container'>
+            <div className='inner business container'>
+                <h2 className='listing title'> Best Bubble Teas in New York, NY </h2>
+                {bobas && (bobas).map((business) => {
+                    return (
+                        <div className='each business container'>
+                            <Link key={business.name} to={`/businesses/${business.id}`}>
+                                <div>
+                                    <div>{business.name}</div>
+                                    <div>{business.phone}</div>
+                                    <div>{business.address} New York, NY {business.zipcode} </div>
+                                    <div>Avg Rating goes here soon</div>
+                                </div>
+                            </Link>
                         </div>
-                    </Link>
-                )
-            })}
-        </>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
 

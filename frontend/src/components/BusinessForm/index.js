@@ -89,7 +89,7 @@ const CreateBusinessForm = () => {
                     {validationErrors.map(error => <li key={error}>{error}</li>)}
                 </ul>
             )}
-            <form className='create-business-form' onSubmit={handleSubmit}>
+            <form className='create business form' onSubmit={handleSubmit}>
                 <label>
                     Name of your business
                     <input type='text' name='name' value={name} onChange={updateName} required />
@@ -101,8 +101,8 @@ const CreateBusinessForm = () => {
                 <label>
                     Address
                     <input type='text' name='address' value={address} onChange={updateAddress} required />
+                       New York, NY
                 </label>
-                <div> New York, NY </div>
                 <label>
                     Zipcode
                     <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode} placeholder="5 digit zipcode" required />
@@ -124,8 +124,8 @@ const CreateBusinessForm = () => {
                     Website Url
                     <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} placeholder="Optional" />
                 </label>
-                <button type="submit">Add your business</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className="submit business" type="submit">Add your business</button>
+                <button className="cancel" type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
         </>
     )
