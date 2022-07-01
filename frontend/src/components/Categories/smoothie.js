@@ -18,7 +18,7 @@ const AllSmoothie = () => {
 
     return (
         <>
-            <h2> Best Bars in New York, NY </h2>
+            <h2> Best Smoothies in New York, NY </h2>
             {smoothies && (smoothies).map((business) => {
                 return (
                     <Link key={business.name} to={`/businesses/${business.id}`}>

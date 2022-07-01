@@ -23,9 +23,9 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-        <button onClick={DemoLogin}>Demo User</button>
+        <button  className='nav-button' id="demo-button" onClick={DemoLogin}>Demo User</button>
+        <NavLink to="/login" className='nav-button' id='login-button'>Log In</NavLink>
+        <NavLink to="/signup" className='nav-button' id='signup-button'>Sign Up</NavLink>
       </>
     );
   }
@@ -35,12 +35,16 @@ function Navigation({ isLoaded }){
   return (
     <div className='navbar-container'>
       <img src=''/>
-      <ul>
-        <li>
-          <NavLink exact to="/">Home</NavLink>
-          {isLoaded && sessionLinks}
-          <NavLink exact to='/businesses'>Businesses</NavLink>
-          <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
+      <ul className='navbar'>
+        <li className='navbar'>
+          <div className='navbar-right'>
+            <NavLink exact to="/"> <img className='sips-logo' src='https://www.linkpicture.com/q/sips-blueblack-logo.png'/> </NavLink>
+            <NavLink exact to='/businesses'>Businesses</NavLink>
+            <NavLink exact to={sessionUser?'/businesses/new': '/login'}>Add Your Business!</NavLink>
+          </div>
+          <div className='navbar-left'>
+            {isLoaded && sessionLinks}
+          </div>
         </li>
       </ul>
     </div>
