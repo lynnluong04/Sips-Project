@@ -18,7 +18,7 @@ const AllTea = () => {
 
     return (
         <>
-            <h2> Best Bars in New York, NY </h2>
+            <h2> Best Tea Shops in New York, NY </h2>
             {teas && (teas).map((business) => {
                 return (
                     <Link key={business.name} to={`/businesses/${business.id}`}>

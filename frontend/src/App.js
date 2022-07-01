@@ -58,7 +58,6 @@ function App() {
         <Route exact path='/bubble-tea'>
           <AllBoba />
         </Route>
-        <Route>Page not found</Route>
       </Switch>
       {isLoaded && (
         <Switch>
@@ -69,9 +68,9 @@ function App() {
             <SignupFormPage />
           </Route>
 
-
         </Switch>
       )}
+      {/* <Route>Page not found</Route> */}
     </>
   );
 }
