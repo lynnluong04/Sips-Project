@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkGetBusinesses } from '../../store/business';
 import { Link } from 'react-router-dom';
-import './AllBusinesses.css'
 
 const AllBusinesses = ({notHome}) => {
 notHome();
