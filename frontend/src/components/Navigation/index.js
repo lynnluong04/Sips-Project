@@ -39,7 +39,7 @@ function Navigation({ isLoaded, isHome }){
         <li className={isHome?'home navbar':'navbar'}>
           <div className={isHome?'home navbar-right':'navbar-right'}>
             <NavLink exact to="/"> <img className={isHome?'home sips-logo':'sips-logo'} src={isHome? "https://www.linkpicture.com/q/whitebluelogoicon-nobg.png":'https://www.linkpicture.com/q/sipslogo-blue.png'}/> </NavLink>
-            <NavLink exact to='/businesses' className={isHome?'home all businesses':"all businesses"}>Businesses</NavLink>
+            <NavLink exact to='/businesses' className={isHome?'home all businesses':"all business"}>Businesses</NavLink>
             <NavLink exact to={sessionUser?'/businesses/new': '/login'} className={isHome?"home add businesses":"add business"}>Add Your Business!</NavLink>
           </div>
           <div className={isHome? "home navbar-left":'navbar-left'}>
