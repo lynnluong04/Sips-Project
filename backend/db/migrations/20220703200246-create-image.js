@@ -10,7 +10,10 @@ module.exports = {
       },
       businessId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Businesses"
+        }
       },
       photoUrl: {
         allowNull: false,
