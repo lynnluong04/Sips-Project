@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { thunkGetBusinesses } from '../../store/business';
 import { Link } from 'react-router-dom';
 
-const AllSmoothie = () => {
+const AllSmoothie = ({notHome}) => {
+    notHome();
     const dispatch = useDispatch();
 
     const businesses = useSelector(state => {

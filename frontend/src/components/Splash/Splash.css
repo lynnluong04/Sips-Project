@@ -1,3 +1,93 @@
+
+.home.navbar-container {
+    background: url(https://www.linkpicture.com/q/cafecounter_1.jpg) no-repeat center center;
+    height: 300px;
+    background-size: cover;
+    background-position: 0 -320px fixed;
+    margin-top: -10px;
+}
+
+.home.navbar-left {
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.home.sips-logo {
+    height: 100px;
+    width: auto;
+}
+
+.home.all {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    transition-property: border 1s;
+    height: fit-content;
+    padding: 15px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.home.all:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+.home.add {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    height: fit-content;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.home.add:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+.home.nav-button {
+    margin-left: 30px;
+}
+
+#home-demo-button {
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    padding: 10px 16px;
+    height: 42px;
+    font-weight: bold;
+}
+#home-demo-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 1s;
+}
+
+#home-signup-button {
+    background-color: rgb(1, 194, 220);
+    border: 2px solid rgb(1, 194, 220);
+    color: white;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+#home-signup-button:hover {
+    background-color: rgb(1, 225, 255);
+    border: 2px solid rgb(1, 225, 255);
+    transition-duration: 1s;
+}
+
+#home-login-button {
+    border: 2px solid white;
+    color: white;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+#home-login-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 1s;
+}
+
 #categories-container {
     display: flex;
     justify-content: center;

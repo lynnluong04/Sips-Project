@@ -7,7 +7,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import EditBusinessForm from '../EditBusinessForm';
 import CreateReviewForm from '../ReviewForm';
 
-const BusinessDetail = () => {
+const BusinessDetail = ({notHome}) => {
+    notHome();
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
     const { businessId } = useParams();

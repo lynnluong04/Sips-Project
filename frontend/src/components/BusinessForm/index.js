@@ -6,7 +6,8 @@ import { thunkCreateBusiness } from '../../store/business';
 
 const categories = ['Bar', 'Bubble Tea', 'Coffee', 'Smoothies', 'Tea'];
 
-const CreateBusinessForm = () => {
+const CreateBusinessForm = ({notHome}) => {
+    notHome();
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
