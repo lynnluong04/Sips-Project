@@ -35,8 +35,7 @@ const EditBusinessForm = ({ business, hideForm }) => {
         if (phoneDigits.length !== 10) {
             validationErrors.push('Please provide a 10-digit Phone number');
         }
-        let zipcodeDigits = zipcode.trim()
-        const validZip = /(^\d{5}$)/.test(zipcodeDigits)
+        const validZip = /(^\d{5}$)/.test(zipcode)
         if (!validZip) {
             validationErrors.push('Please provide a valid zipcode')
         }
@@ -84,7 +83,7 @@ const EditBusinessForm = ({ business, hideForm }) => {
                 </label>
                 <label>
                     Description
-                    <textarea name='description' value={description} onChange={updateDescription}></textarea>
+                    <textarea name='description' value={description || ""} onChange={updateDescription}></textarea>
                 </label>
                 <label>
                     Address

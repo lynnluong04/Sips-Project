@@ -28,8 +28,8 @@ notHome();
             <div className='inner business container'>
             {businesses && (businesses).map((business) => {
                 return (
-                    <div className='each business container'>
-                        <Link key={business.name} to={`/businesses/${business.id}`}>
+                    <div className='each business container'  key={business.name}>
+                        <Link to={`/businesses/${business.id}`}>
                             <div className='each-business-container'>
                                 <div>{business.name}</div>
                                 <div>{business.phone}</div>

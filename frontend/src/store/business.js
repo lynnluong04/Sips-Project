@@ -79,9 +79,9 @@ export const thunkUpdateBusiness = (businessData) => async (dispatch) => {
     })
 
     if (response.ok) {
-        const business = await response.json()
-        dispatch(actionUpdateBusiness(business))
-        return business;
+        const editedBusiness = await response.json()
+        dispatch(actionUpdateBusiness(editedBusiness))
+        return editedBusiness;
     }
 }
 
@@ -115,7 +115,7 @@ const businessReducer = (state = {}, action) => {
 
         case UPDATE_BUSINESS:
             const newState3 = { ...state }
-            newState3[action.business.id] = action.business
+            newState3[action.business.id] = {...action.business}
             return newState3
 
         case DELETE_BUSINESS:
