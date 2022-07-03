@@ -7,10 +7,10 @@ function Footer() {
     return (
         <footer className='footer container'>
             <div >
-                <Link className='github link' to="https://github.com/lynnluong04/Sips-Project">
-                <img src='https://www.linkpicture.com/q/githublogowhite.png'/>
-                </Link>
-                <Link to="www.linkedin.com/in/lynn-luong-905740139"></Link>
+                <a className='github link' href="https://github.com/lynnluong04/Sips-Project">
+                <img className='github image' src='https://www.linkpicture.com/q/githublogowhite.png'/>
+                </a>
+                <a href="www.linkedin.com/in/lynn-luong-905740139"></a>
             </div>
         </footer>
     )
