@@ -1,11 +1,11 @@
 
 .home.navbar-container {
-    background: url(https://www.linkpicture.com/q/cafecountercropped.jpeg);
-    height: 300px;
+    background: url(https://www.linkpicture.com/q/cafecountercropped.jpeg) no-repeat;
+    height: 400px;
     background-size: cover;
-    background-position: 0 -350px fixed;
+    background-position: fixed;
     margin-top: -10px;
-    width: 100vw;
+    max-width: 100%;
 }
 
 
@@ -19,6 +19,10 @@
     height: 100px;
     width: auto;
 }
+.sips-logo:hover {
+    transform: scale(1.05);
+}
+
 
 .home.all {
     font-size: 20px;
@@ -34,6 +38,7 @@
 
 .home.all:hover {
  transform: scale(1.1);
+ background-color: none;
 }
 
 .home.add {
@@ -48,7 +53,7 @@
     border-bottom: 3px solid rgb(1, 194, 220);
 }
 
-.home.add:hover {
+.home.add.businesses:hover {
     transform: scale(1.1);
 }
 
@@ -98,8 +103,8 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 30px;
-    background-color: rgb(231, 231, 231);
-
+    background-color: rgb(242, 242, 242);
+    width: 100%;
 }
 
 h2.home {
@@ -113,16 +118,17 @@ h2.home {
     justify-content: center;
 }
 .image-container {
-    width: 150px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     margin: 30px;
     background-color: rgb(1, 194, 220);
     border-radius: 5px;
 }
 
 .category-image {
+    min-width: 100%;
     max-width: 100%;
-    height: 65%;
+    height: 70%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -139,4 +145,5 @@ a {
 }
 .image-container:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    background-color:  rgb(1, 225, 255);
 }
