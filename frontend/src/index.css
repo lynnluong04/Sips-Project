@@ -4,14 +4,18 @@
 }
 
 
+body {
+    width: 100vw;
+}
+
 #root {
     width: 100%;
     margin-right: 0;
 }
 
 .navbar-container {
-    min-width: 100%;
-    height: 90px;
+    max-width: 100%;
+    height: 100px;
     display: flex;
     margin-left: -15px;
     padding-right: 100px;
@@ -32,7 +36,6 @@ li.navbar {
 
 li.navbar a {
     text-decoration: none;
-
 }
 
 li.navbar::marker {
@@ -48,15 +51,19 @@ li.navbar::marker {
     margin-left: 40px;
     display: inline-flex;
     width: 50%;
-    justify-content: space-evenly;
 }
 
-.all.businesses,
+.all.business,
 .add.business {
-    padding: 15px 15px 0px 15px;
+    padding: 15px;
     margin-top: 15px;
     text-align: center;
+    margin-left: 40px;
+}
 
+.all.business:hover, .add.business:hover {
+    background-color: rgb(242, 242, 242);
+    border-radius: 5px;
 }
 
 
@@ -80,11 +87,18 @@ li.navbar::marker {
     position: relative;
 }
 
+
 #signup-button {
     background-color: rgb(1, 194, 220);
     color: white;
     border: 1px solid rgb(1, 194, 220);
     width: fit-content;
+}
+#signup-button:hover {
+    background-color: rgb(1, 225, 255);
+    border: 1px solid rgb(1, 225, 255);
+    transition-duration: 1s;
+
 }
 
 .outer.business {
