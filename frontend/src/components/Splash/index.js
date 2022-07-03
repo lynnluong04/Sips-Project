@@ -1,6 +1,7 @@
 //components/Splash
 import { Link } from "react-router-dom";
 import './Splash.css'
+import Footer from "../Footer";
 
 const Splash = ({homeNav}) => {
 
@@ -40,6 +41,7 @@ homeNav();
                     </Link>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
