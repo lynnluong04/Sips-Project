@@ -22,10 +22,6 @@ router.get('/:businessId', asyncHandler(async (req, res) => {
 
 router.put('/:businessId', asyncHandler(async (req, res) => {
 
-  // const business = await Business.update(req.body, {
-  //     where: {id:req.body.id}
-  //   })
-
   const {name,
     description,
     address,
