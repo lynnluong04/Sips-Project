@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Image.associate = function(models) {
-    Image.belongsTo(model.Business, {
+    Image.belongsTo(models.Business, {
       foreignKey: 'businessId'
     })
   };
