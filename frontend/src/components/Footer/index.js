@@ -5,10 +5,14 @@ import "./footer.css"
 
 function Footer() {
     return (
-        <div className='footer container'>
-            <Link to="https://github.com/lynnluong04/Sips-Project"></Link>
-            <Link to="www.linkedin.com/in/lynn-luong-905740139"></Link>
-        </div>
+        <footer className='footer container'>
+            <div >
+                <Link className='github link' to="https://github.com/lynnluong04/Sips-Project">
+                <img src='https://www.linkpicture.com/q/githublogowhite.png'/>
+                </Link>
+                <Link to="www.linkedin.com/in/lynn-luong-905740139"></Link>
+            </div>
+        </footer>
     )
 }
 

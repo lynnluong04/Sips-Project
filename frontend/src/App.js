@@ -28,7 +28,6 @@ function App() {
 
   return (
     <>
-
       <Navigation isLoaded={isLoaded} isHome={isHome} />
       <Switch>
         <Route exact path='/'>
