@@ -7,7 +7,8 @@ import './LoginForm.css';
 
 
 
-function LoginFormPage() {
+function LoginFormPage({notHome}) {
+  notHome();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');

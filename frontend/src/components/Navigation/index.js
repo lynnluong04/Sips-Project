@@ -23,9 +23,9 @@ function Navigation({ isLoaded, isHome }){
   } else {
     sessionLinks = (
       <>
-        <button  className={isHome?'navhome-button':'nav-button'} id="demo-button" onClick={DemoLogin}>Demo User</button>
-        <NavLink to="/login" className='nav-button' id='login-button'>Log In</NavLink>
-        <NavLink to="/signup" className='nav-button' id='signup-button'>Sign Up</NavLink>
+        <button  className={isHome?'home nav-button':'nav-button'} id={isHome?"home-demo-button":"demo-button"} onClick={DemoLogin}>Demo User</button>
+        <NavLink to="/login" className={isHome?'home nav-button':'nav-button'} id={isHome? "home-login-button":"login-button"}>Log In</NavLink>
+        <NavLink to="/signup" className={isHome?'home nav-button':'nav-button'} id={isHome? "home-signup-button":"signup-button"}>Sign Up</NavLink>
       </>
     );
   }
@@ -33,16 +33,16 @@ function Navigation({ isLoaded, isHome }){
 
 
   return (
-    <div className='navbar-container'>
+    <div className={isHome?'home navbar-container':'navbar-container'}>
       <img src=''/>
-      <ul className='navbar'>
-        <li className='navbar'>
-          <div className='navbar-right'>
-            <NavLink exact to="/"> <img className='sips-logo' src='https://www.linkpicture.com/q/sipslogo-blue.png'/> </NavLink>
-            <NavLink exact to='/businesses' className="all businesses">Businesses</NavLink>
-            <NavLink exact to={sessionUser?'/businesses/new': '/login'} className="add business">Add Your Business!</NavLink>
+      <ul className={isHome?'home navbar':'navbar'}>
+        <li className={isHome?'home navbar':'navbar'}>
+          <div className={isHome?'home navbar-right':'navbar-right'}>
+            <NavLink exact to="/"> <img className={isHome?'home sips-logo':'sips-logo'} src={isHome? "https://www.linkpicture.com/q/whitebluelogoicon-nobg.png":'https://www.linkpicture.com/q/sipslogo-blue.png'}/> </NavLink>
+            <NavLink exact to='/businesses' className={isHome?'home all businesses':"all businesses"}>Businesses</NavLink>
+            <NavLink exact to={sessionUser?'/businesses/new': '/login'} className={isHome?"home add businesses":"add business"}>Add Your Business!</NavLink>
           </div>
-          <div className='navbar-left'>
+          <div className={isHome? "home navbar-left":'navbar-left'}>
             {isLoaded && sessionLinks}
           </div>
         </li>

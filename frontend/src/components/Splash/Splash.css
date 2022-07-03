@@ -1,29 +1,142 @@
+
+.home.navbar-container {
+    background: url(https://www.linkpicture.com/q/cafecountercropped.jpeg);
+    height: 300px;
+    background-size: cover;
+    background-position: 0 -350px fixed;
+    margin-top: -10px;
+    width: 100vw;
+}
+
+
+
+.home.navbar-left {
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.home.sips-logo {
+    height: 100px;
+    width: auto;
+}
+
+.home.all {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    transition-property: border 1s;
+    height: fit-content;
+    padding: 0 0 8px 0;
+    font-weight: bold;
+    margin-left: 30px;
+    border-bottom: 3px solid rgb(1, 194, 220);
+}
+
+.home.all:hover {
+ transform: scale(1.1);
+}
+
+.home.add {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    transition-property: border 1s;
+    height: fit-content;
+    padding: 0 0 8px 0;
+    font-weight: bold;
+    margin-left: 30px;
+    border-bottom: 3px solid rgb(1, 194, 220);
+}
+
+.home.add:hover {
+    transform: scale(1.1);
+}
+
+.home.nav-button {
+    margin-left: 30px;
+}
+
+#home-demo-button {
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    padding: 10px 16px;
+    height: 42px;
+    font-weight: bold;
+}
+#home-demo-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 1s;
+}
+
+#home-signup-button {
+    background-color: rgb(1, 194, 220);
+    border: 2px solid rgb(1, 194, 220);
+    color: white;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+#home-signup-button:hover {
+    background-color: rgb(1, 225, 255);
+    border: 2px solid rgb(1, 225, 255);
+    transition-duration: 1s;
+}
+
+#home-login-button {
+    border: 2px solid white;
+    color: white;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+#home-login-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 1s;
+}
+
 #categories-container {
     display: flex;
     justify-content: center;
-
+    flex-direction: column;
+    margin-top: 30px;
+    background-color: rgb(231, 231, 231);
 
 }
 
+h2.home {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.categories.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .image-container {
     width: 150px;
-    height: 120px;
+    height: 160px;
+    margin: 30px;
+    background-color: rgb(1, 194, 220);
+    border-radius: 5px;
 }
 
 .category-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    height: 65%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
-.navhome-button {
-    padding: 8px 16px;
-    height: 36px;
-    border: 1px solid lightgray;
-    font-size: 16px;
+a {
+    text-decoration: none;
+}
+
+.category.label {
+    font-size: 18px;
     text-align: center;
-    box-sizing: border-box;
-    margin-left: 15px;
-    border-radius: 5px;
-    background-color: aquamarine;
+    margin-top: 15px;
+    color: white;
+}
+.image-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
 }
