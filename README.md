@@ -6,7 +6,7 @@ Welcome to Sips!
 
 ## Technologies Used
 - Languages: Javascript, HTML, CSS
-- Front-End: React, JSX
+- Front-End: React, JSX, Redux
 - Back-End: Express, Javascript
 - Database: PostgreSQL
 - Hosting: Heroku
