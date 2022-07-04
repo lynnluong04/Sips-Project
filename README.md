@@ -1,7 +1,9 @@
 # Sips
 
+Visit the live site: https://sips-solo-project.herokuapp.com/
 
-Welcome to Sips!
+Welcome to Sips! 
+
 
 
 ## Technologies Used
