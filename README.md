@@ -18,6 +18,6 @@ Sips is fullstack web application modeled after Yelp and is focused on businesse
 2. Run the command "npm install" in both the frontend and backend directory
 3. Run the command "npm start" in both the frontend and backend directory
 
-
-
-##
+## Index 
+* [Feature List](https://github.com/lynnluong04/Sips-Project/wiki/Feature-List)
+* [
