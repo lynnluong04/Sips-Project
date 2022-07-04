@@ -42,8 +42,8 @@ body {
     padding-right: 100px;
     position: relative;
     top: 0;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 1px solid lightgrey;
+    /* background-color: rgb(242, 242, 242); */
+    border-bottom: 2px solid rgb(1, 194, 220);
 }
 
 ul.navbar {
@@ -76,15 +76,16 @@ li.navbar::marker {
 
 .all.business,
 .add.business {
-    padding: 15px;
+    padding-top: 15px;
     margin-top: 15px;
     text-align: center;
     margin-left: 40px;
+    width: fit-content;
 }
 
 .all.business:hover, .add.business:hover {
-    background-color: rgb(242, 242, 242);
-    border-radius: 5px;
+    transform: scale(1.1);
+    border-bottom: 2px solid rgb(1, 194, 220);
 }
 
 
@@ -95,10 +96,22 @@ li.navbar::marker {
     font-size: 16px;
     text-align: center;
     box-sizing: border-box;
+    margin-top: 15px;
     margin-left: 15px;
     border-radius: 5px;
     width: fit-content;
 
+}
+
+#demo-button, #login-button {
+    background-color: white;
+    border: 1px solid white;
+}
+
+#demo-button:hover, #login-button:hover {
+background-color: rgb(242, 242, 242);
+border: 1px solid rgb(242, 242, 242);
+transition-duration: 1s;
 }
 
 .sips-logo {
@@ -122,25 +135,7 @@ li.navbar::marker {
 
 }
 
-.outer.business {
-    height: 100vh;
-    width: 100vw;
-}
 
-.inner.business {
-    height: 100vh;
-    width: 40%;
-    margin: 10px auto;
-    display: flex;
-    flex-flow: column;
-}
-
-.each.business {
-    margin: 15px 0px 10px 15px;
-    border: 1px solid lightgray;
-    width: 80%;
-    padding: 20px;
-}
 
 h2 {
     text-align: center;
