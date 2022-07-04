@@ -27,7 +27,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="page container">
       <Navigation isLoaded={isLoaded} isHome={isHome} />
       <Switch>
         <Route exact path='/'>
@@ -71,7 +71,7 @@ function App() {
         </Switch>
       )}
       {/* <Route>Page not found</Route> */}
-    </>
+    </div>
   );
 }
 

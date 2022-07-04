@@ -7,6 +7,7 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
+import Footer from './components/Footer';
 
 
 const store = configureStore();
@@ -24,6 +25,7 @@ function Root() {
     <ReduxProvider store={store}>
       <BrowserRouter>
         <App />
+        <Footer />
       </BrowserRouter>
     </ReduxProvider>
   );
