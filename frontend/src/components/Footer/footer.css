@@ -1,14 +1,26 @@
 .footer.container {
-    height: 50px;
-    background-color: rgb(164, 164, 164);
+    height: 150px;
     width: 100%;
     bottom: 0;
-    position: fixed;
-    margin-left: -8px;
+    position: absolute;
+    margin: 10px auto;
+    background-color:rgb(242, 242, 242);
 }
 
-a.github > img {
+div.footer {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    min-width: 100%;
+    margin-top: 20px;
+}
+
+a.footer > img {
     height: 40px;
     width: 40px;
     margin-top: 5px;
+}
+
+div.item {
+    margin-left: 50px;
 }
