@@ -15,10 +15,18 @@ function Navigation({ isLoaded, isHome }){
     return dispatch(sessionActions.login({ credential, password }))
   }
 
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+  };
+
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <button className="logout" onClick={logout}>Log Out</button>
+        <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (

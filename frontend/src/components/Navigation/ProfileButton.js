@@ -24,10 +24,6 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-  };
 
   return (
     <>
@@ -39,7 +35,6 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button className="logout" onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}

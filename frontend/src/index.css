@@ -186,16 +186,22 @@ button.submit, button.update, button.add, button.signup, button.login {
 }
 
 button.logout {
-    padding: 4px 8px;
-    height: 18px;
+    padding: 8px 16px;
+    height: 36px;
     width: fit-content;
     background-color: rgb(1, 194, 220);
     border: 1px solid rgb(1, 194, 220);
-    font-size: 8px;
+    font-size: 16px;
     text-align: center;
     box-sizing: border-box;
     border-radius: 5px;
     color: white;
+    margin-right: 15px;
+}
+button.logout:hover {
+    background-color: rgb(1, 225, 255);
+    border: 2px solid rgb(1, 225, 255);
+    transition-duration: 1s;
 }
 
 button.delete {
@@ -226,19 +232,25 @@ input {
     border-radius: 5px;
 }
 
-.profile-dropdown {
-    height: 100px;
-    width: 150px;
-    padding: 10px;
-    background-color: azure;
-    border-radius: 5px;
-    border: 2px solid lightgray;
-}
-
 .profile.menu {
     height: 40px;
     width: 40px;
     background-color: rgb(1, 194, 220);
     border: 1px solid rgb(1, 194, 220);
     border-radius: 5px;
+}
+.profile.menu:hover {
+    background-color: rgb(1, 225, 255);
+    border: 2px solid rgb(1, 225, 255);
+    transition-duration: 1s;
+}
+
+.profile-dropdown {
+    height: 60px;
+    width: fit-content;
+    padding: 10px;
+    background-color: azure;
+    border-radius: 5px;
+    border: 2px solid lightgray;
+    list-style: none;
 }
