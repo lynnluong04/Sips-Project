@@ -14,7 +14,7 @@ function Footer() {
                 </div>
                 <div className='item about'>
                     <p>About</p>
-                    <a className='footer' href="www.linkedin.com/in/lynn-luong-905740139">
+                    <a className='footer' href="https://www.linkedin.com/in/lynn-luong-905740139/" target='_blank' >
                         <img className='linkedin image' alt='linkedin link' src="https://www.linkpicture.com/q/linkedin_9.png"/>
                     </a>
                 </div>
