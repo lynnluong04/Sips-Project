@@ -41,10 +41,10 @@ const AllSmoothie = ({ notHome }) => {
             </div>
             <div className='outer business container'>
                 <h2 className='listing title'> Best Smoothies in New York, NY </h2>
-                <div className='inner business container'>
+                <div className='inner business container' >
                     {smoothies && (smoothies).map((business) => {
                         return (
-                            <div className='each business container'>
+                            <div className='each business container' key={business.name}>
 
                                 <Link key={business.name} to={`/businesses/${business.id}`}>
                                     <div>

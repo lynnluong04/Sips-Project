@@ -45,7 +45,7 @@ const AllBars = ({ notHome }) => {
                 <div className='inner business container'>
                     {bars && (bars).map((business) => {
                         return (
-                            <div className='each business container'>
+                            <div className='each business container' key={business.name}>
                                 <Link key={business.name} to={`/businesses/${business.id}`}>
                                     <div>
                                         <div className='title'>{business.name}</div>
