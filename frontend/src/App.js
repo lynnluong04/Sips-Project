@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import AllBusinesses from "./components/AllBusinesses";
 import * as sessionActions from "./store/session";
@@ -61,9 +60,6 @@ function App() {
       </Switch>
       {isLoaded && (
         <Switch>
-          <Route exact path="/login">
-            <LoginFormPage notHome={()=> setIsHome(false)}/>
-          </Route>
           <Route exact path="/signup">
             <SignupFormPage notHome={()=> setIsHome(false)}/>
           </Route>

@@ -9,7 +9,7 @@ function Footer() {
                 <div className='item discover'>
                     <p>Discover</p>
                     <a className='footer github link' href="https://github.com/lynnluong04/Sips-Project" target='_blank' >
-                    <img className='github image' alt='github link' src='https://www.linkpicture.com/q/github-logo.png' target='_blank'/>
+                    <img className='github image' alt='github link' src='https://www.linkpicture.com/q/github-logo.png'/>
                     </a>
                 </div>
                 <div className='item about'>
