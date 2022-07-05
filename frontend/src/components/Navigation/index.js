@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import * as sessionActions from '../../store/session';
-import LoginFormModal from '../LoginFormModal';
 
 
 function Navigation({ isLoaded, isHome }){
@@ -34,11 +33,12 @@ function Navigation({ isLoaded, isHome }){
     sessionLinks = (
       <>
         <button  className={isHome?'home nav-button':'nav-button'} id={isHome?"home-demo-button":"demo-button"} onClick={DemoLogin}>Demo User</button>
-        <LoginFormModal />
+        <NavLink to="/login" className={isHome?'home nav-button':'nav-button'} id={isHome? "home-login-button":"login-button"}>Log In</NavLink>
         <NavLink to="/signup" className={isHome?'home nav-button':'nav-button'} id={isHome? "home-signup-button":"signup-button"}>Sign Up</NavLink>
       </>
     );
   }
+
 
 
 
