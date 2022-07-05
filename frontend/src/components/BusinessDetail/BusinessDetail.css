@@ -1,12 +1,82 @@
-.business.container {
+.business-detail-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    height: auto;
+    min-height: 100vh;
 }
 
 .business.content {
-    width: 50%;
+    width: 100%;
     margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.business-info-container {
+    min-width: fit-content;
+    max-width: 35%;
     border: 2px solid rgb(1, 194, 220);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.business-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.business-info > div {
+    margin-top: 10px;
+}
+.update-delete-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+button.update.business, button.delete.business, button.add.review {
+    margin-top: 15px;
+}
+button.update:hover, button.add.review:hover {
+    background-color: rgb(1, 225, 255);
+    border: 1px solid rgb(1, 225, 255);
+    transition-duration: 1s;
+}
+
+button.delete {
+background-color: rgb(242, 242, 242);
+}
+
+button.delete:hover {
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(230, 230, 230);
+    transition-duration: 1s;
+}
+
+
+.reviews.content {
+    width: 100%;
+    border-top: 2px solid rgb(1, 194, 220);
+    padding: 15px;
+    margin-top: 20px;
+}
+
+div.images.container {
+    padding: 15px;
+    margin-top: 20px;
+}
+
+img.placeholder {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+
+}
+
+#business-name {
+    font-size: 30px;
 }

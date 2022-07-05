@@ -1,13 +1,14 @@
 //api/routes/reviews
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Business, Review } = require('../../db/models');
+const { Business, Review, User } = require('../../db/models');
 
 const router = express.Router();
 
 router.get('/:businessId', asyncHandler(async (req, res) => {
     const reviews = await Review.findAll({
-        where: { businessId: req.params.businessId }
+        where: { businessId: req.params.businessId },
+        include: [User]
     });
     return res.json(reviews)
 }));

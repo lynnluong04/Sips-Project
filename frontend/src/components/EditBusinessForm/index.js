@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
+import "./EditBusinessForm.css"
 
 const categories = ['Bar', 'Bubble Tea', 'Coffee', 'Smoothies', 'Tea'];
 
@@ -71,50 +72,50 @@ const EditBusinessForm = ({ business, hideForm }) => {
     };
 
     return (
-        <>
-            <form className='edit business form' onSubmit={handleSubmit} >
+        <div className='edit-business-container'>
+            <form className='edit' onSubmit={handleSubmit} >
                 {validationErrors.length > 0 && (
                     <ul>
                         {validationErrors.map(error => <li key={error}>{error}</li>)}
                     </ul>
                 )}
-                <label>
+                <label className='edit'>
                     Name of your business
-                    <input type='text' name='name' value={name} onChange={updateName} />
+                    <input className='edit' type='text' name='name' value={name} onChange={updateName} />
                 </label>
-                <label>
+                <label className='edit'>
                     Description
-                    <textarea name='description' value={description || ""} onChange={updateDescription}></textarea>
+                    <textarea className='edit' name='description' value={description || ""} onChange={updateDescription}></textarea>
                 </label>
-                <label>
+                <label className='edit'>
                     Address
-                    <input type='text' name='address' value={address} onChange={updateAddress} />
+                    <input className='edit' type='text' name='address' value={address} onChange={updateAddress} />
                     New York, NY
                 </label>
-                <label>
+                <label className='edit'>
                     Zipcode
-                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode} />
+                    <input className='edit' type='text' name='zipcode' value={zipcode} onChange={updateZipcode} />
                 </label>
-                <label>
+                <label className='edit'>
                     Category
-                    <select value={category} onChange={updateCategory}>
+                    <select className='edit' value={category} onChange={updateCategory}>
                         {categories.map(type =>
                             <option key={type}>{type}</option>
                         )}
                     </select>
                 </label>
-                <label>
+                <label className='edit'>
                     Phone Number
-                    <input type='text' name='phone' value={phone} onChange={updatePhone} />
+                    <input className='edit' type='text' name='phone' value={phone} onChange={updatePhone} />
                 </label>
-                <label>
+                <label className='edit'>
                     Website Url
-                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} />
+                    <input className='edit' type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} />
                 </label>
-                <button className="submit update" type="submit">Update your business</button>
-                <button className="cancel button" type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className="submit edit" type="submit">Update your business</button>
+                <button className="edit cancel button" type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
-        </>
+        </div>
     )
 }
 

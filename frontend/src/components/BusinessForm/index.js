@@ -83,51 +83,51 @@ const CreateBusinessForm = ({notHome}) => {
     };
 
     return (
-        <>
-            <h2>Add your business</h2>
+        <div className='add-business-container'>
+            <h2 className='add-business'>Add your business</h2>
             {validationErrors.length > 0 && (
                 <ul>
                     {validationErrors.map(error => <li key={error}>{error}</li>)}
                 </ul>
             )}
-            <form className='create business form' onSubmit={handleSubmit}>
-                <label>
+            <form className='add-business' onSubmit={handleSubmit}>
+                <label className='add-business'>
                     Name of your business
-                    <input type='text' name='name' value={name} onChange={updateName} required />
+                    <input className='add-business' type='text' name='name' value={name} onChange={updateName} required />
                 </label>
-                <label>
+                <label className='add-business'>
                     Description
-                    <textarea name='description' value={description} onChange={updateDescription} required ></textarea>
+                    <textarea className='add-business' name='description' value={description} onChange={updateDescription} required ></textarea>
                 </label>
-                <label>
+                <label className='add-business'>
                     Address
-                    <input type='text' name='address' value={address} onChange={updateAddress} required />
+                    <input className='add-business' type='text' name='address' value={address} onChange={updateAddress} required />
                        New York, NY
                 </label>
-                <label>
+                <label className='add-business'>
                     Zipcode
-                    <input type='text' name='zipcode' value={zipcode} onChange={updateZipcode} placeholder="5 digit zipcode" required />
+                    <input className='add-business' type='text' name='zipcode' value={zipcode} onChange={updateZipcode} placeholder="5 digit zipcode" required />
                 </label>
-                <label>
+                <label className='add-business'>
                     Category
-                    <select value={category} onChange={updateCategory}>
+                    <select className='add-business' value={category} onChange={updateCategory}>
                         {categories.map(type =>
                             <option key={type}>{type}</option>
                         )}
                     </select>
                 </label>
-                <label>
+                <label className='add-business'>
                     Phone Number
-                    <input type='website' name='phone' value={phone} onChange={updatePhone} required placeholder='10 digit phone number'/>
+                    <input className='add-business' type='website' name='phone' value={phone} onChange={updatePhone} required placeholder='10 digit phone number'/>
                 </label>
-                <label>
+                <label className='add-business'>
                     Website Url
-                    <input type='url' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} placeholder="Optional" />
+                    <input className='add-business' type='url' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} placeholder="Optional" />
                 </label>
-                <button className="submit business" type="submit">Add your business</button>
-                <button className="cancel" type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className="submit add-business" type="submit">Add your business</button>
+                <button className="cancel add-business" type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
-        </>
+        </div>
     )
 }
 

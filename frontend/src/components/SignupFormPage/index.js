@@ -31,40 +31,46 @@ function SignupFormPage({notHome}) {
   };
 
   return (
-    <form className="sign up form" onSubmit={handleSubmit}>
+    <div className="signup-container">
+      <h2 className="signup"> Sign up for Sips</h2>
+      <form className="signup" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
+      <label className="signup">
         Email
         <input
+        className="signup"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="signup">
         Username
         <input
+        className="signup"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="signup">
         Password
         <input
+        className="signup"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="signup">
         Confirm Password
         <input
+        className="signup"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
@@ -73,6 +79,7 @@ function SignupFormPage({notHome}) {
       </label>
       <button className="signup" type="submit">Sign Up</button>
     </form>
+    </div>
   );
 }
 

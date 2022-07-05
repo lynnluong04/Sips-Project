@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkCreateReview } from '../../store/reviews';
-
+import "./ReviewForm.css"
 const CreateReviewForm = ({ business, hideForm }) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -39,20 +39,20 @@ const CreateReviewForm = ({ business, hideForm }) => {
     };
 
     return (
-        <>
-            <h2>Add a review</h2>
-            <form className='create review form' onSubmit={handleSubmit}>
-                <label>
+        <div className='review-container'>
+            <h2 className='review'>Add a review</h2>
+            <form className='review' onSubmit={handleSubmit}>
+                <label className='review'>
                     Title
-                    <input type='text' name='title'onChange={updateTitle} required></input>
+                    <input className='review' type='text' name='title'onChange={updateTitle} required></input>
                 </label>
-                <label>
+                <label className='review'>
                     Description
-                    <textarea onChange={updateDescription} value={description} required></textarea>
+                    <textarea className='review' onChange={updateDescription} value={description} required></textarea>
                 </label>
-                <label>
+                <label className='review'>
                     Rating
-                    <select onChange={updateRating} value={rating} required>
+                    <select className='review' onChange={updateRating} value={rating} required>
                         <option disabled></option>
                         <option>1</option>
                         <option>2</option>
@@ -62,9 +62,9 @@ const CreateReviewForm = ({ business, hideForm }) => {
                     </select>
                 </label>
                 <button className='submit review' type="submit">Submit your review</button>
-                <button className='cancel review' type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className='cancel' type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
-        </>
+        </div>
     )
 }
 

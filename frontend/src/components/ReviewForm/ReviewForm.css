@@ -1,27 +1,23 @@
-
-.login-container {
-    min-height: 30%;
-    width: 30%;
-    border-radius: 5px;
-    border: 2px solid rgb(1, 194, 220);
-    padding: 20px;
-    margin: 40px auto;
+.review-container {
+    min-height: fit-content;
+    width: 100%;
 }
 
-form.login {
+form.review {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
-label.login {
+label.review {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     border-radius: 5px;
 }
 
-input.login {
+input.review {
     padding: 6px 8px;
     margin-top: 10px;
     background-color: white;
@@ -29,16 +25,30 @@ input.login {
     width: 250px;
     border: 1px solid gray;
 }
-input.login:hover {
+input.review:hover {
     background-color: rgb(248, 248, 248);
 }
 
-#submit-login {
-    margin-top: 20px;
-    margin-bottom: 10px;
+select.review {
+    height: 30px;
+    width: 265px;
+    padding: 0px 8px;
 }
 
-#submit-login:hover {
+textarea.review {
+    width: 250px;
+    padding: 6px 8px;
+    min-height: 100px;
+}
+textarea.review:hover {
+    background-color: rgb(248, 248, 248);
+}
+
+button.review {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+button.review:hover {
     background-color: rgb(1, 225, 255);
     border: 1px solid rgb(1, 225, 255);
     transition-duration: 1s;

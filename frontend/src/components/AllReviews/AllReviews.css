@@ -1,0 +1,33 @@
+.each-review {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.each-review > div {
+    margin-top: 10px;
+}
+
+#review-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.delete.review {
+    padding: 8px 16px;
+    height: 36px;
+    max-width: fit-content;
+    background-color: rgb(242, 242, 242);
+    border: 1px solid rgb(242, 242, 242);
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+.star {
+    height: 20px;
+    width: 20px;
+    padding-top: 20px;
+}

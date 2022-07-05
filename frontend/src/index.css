@@ -42,7 +42,6 @@ body {
     padding-right: 100px;
     position: relative;
     top: 0;
-    /* background-color: rgb(242, 242, 242); */
     border-bottom: 2px solid rgb(1, 194, 220);
 }
 
@@ -142,22 +141,6 @@ h2 {
 
 }
 
-.form {
-    height: 100vh;
-    width: 50%;
-    display: flex;
-    margin: 30px auto;
-    flex-direction: column;
-    align-items: right;
-}
-
-input, textarea, select {
-    margin-left: 10px;
-}
-
-label {
-    margin: 0 0 20px 0;
-}
 
 button.cancel {
     padding: 8px 16px;
@@ -175,7 +158,7 @@ button.cancel {
 button.submit, button.update, button.add, button.signup, button.login {
     padding: 8px 16px;
     height: 36px;
-    width: fit-content;
+    min-width: fit-content;
     background-color: rgb(1, 194, 220);
     border: 1px solid rgb(1, 194, 220);
     font-size: 16px;
@@ -188,7 +171,7 @@ button.submit, button.update, button.add, button.signup, button.login {
 button.logout {
     padding: 8px 16px;
     height: 36px;
-    width: fit-content;
+    min-width: fit-content;
     background-color: rgb(1, 194, 220);
     border: 1px solid rgb(1, 194, 220);
     font-size: 16px;
@@ -207,22 +190,13 @@ button.logout:hover {
 button.delete {
     padding: 8px 16px;
     height: 36px;
-    width: fit-content;
+    max-width: fit-content;
     background-color: lightgray;
     border: 1px solid lightgray;
     font-size: 16px;
     text-align: center;
     box-sizing: border-box;
-    margin-left: 15px;
     border-radius: 5px;
-}
-
-
-
-textarea {
-    width: 350px;
-    overflow-y: scroll;
-    height: 100px;
 }
 
 

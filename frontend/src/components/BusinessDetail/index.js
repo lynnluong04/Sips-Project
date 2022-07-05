@@ -36,26 +36,27 @@ const BusinessDetail = ({ notHome }) => {
         content = (
             <EditBusinessForm business={business} hideForm={() => setShowEditBusiness(false)} />
         )
+    } else if (showReviewForm) {
+        content = (
+            <CreateReviewForm business={business} hideForm={() => setShowReviewForm(false)} />
+        )
     } else {
         content = (
-            <div >
+            <div className="business-info" >
                 <div>{business?.description}</div>
                 <div>{business?.phone}</div>
                 <div>{business?.address} New York, NY {business?.zipcode} </div>
-
-                <div>{business?.websiteUrl}</div>
-
+                <div><a id="website" href={business?.websiteUrl}>{business?.websiteUrl}</a></div>
                 {sessionUser?.id === business?.userId &&
                     (
-                        <div>
+                        <div className='update-delete-buttons'>
                             <button className='update business' onClick={() => setShowEditBusiness(true)}>Update Your Business</button>
                             <button className='delete business' onClick={() => onDelete()}>Delete Your Business </button>
                         </div>
                     )
                 }
 
-                <button onClick={() => setShowReviewForm(true)} className="Write a review"> Add a Review </button>
-                {showReviewForm && (<CreateReviewForm business={business} hideForm={() => setShowReviewForm(false)} />)}
+                <button onClick={() => setShowReviewForm(true)} className="add review"> Write a Review </button>
             </div>
         )
     }
@@ -64,18 +65,22 @@ const BusinessDetail = ({ notHome }) => {
 
     return (
 
-        < div className='business container' >
+        < div className='business-detail-container' >
             <div className='business content'>
-                <h2 id="business-name">{business?.name}</h2>
-                <div className='images'>
-                    <img src='' alt="example"></img>
-                    <img src='' alt="example"></img>
-                    <img src='' alt="example"></img>
-                    <img src='' alt="example"></img>
+                <div className='business-info-container'>
+                    <h2 id="business-name">{business?.name}</h2>
+                    {content}
                 </div>
-                {content}
+                <div className='images container'>
+                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/C9kLckBI7NTHBnHV-98qEw/o.jpg' alt="example"></img>
+                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/TXWj725O5CbhsxmOuKgwnA/o.jpg' alt="example"></img>
+                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/pzNrEjTSvg4jvVoLpeUT6w/o.jpg' alt="example"></img>
+                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/jwdZpTqbT0Ft7oKOpKGO3A/o.jpg' alt="example"></img>
+                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/H_AFCZwAZsnbimNAyPrbbw/o.jpg' alt="example"></img>
+                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/cS_AaKzYqLgTohYQqTfWnQ/o.jpg' alt="example"></img>
+                </div>
             </div>
-            <div className='reviews'>
+            <div className='reviews content'>
                 <AllReviews />
             </div>
         </div >

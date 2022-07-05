@@ -13,6 +13,7 @@
 .home.navbar-left {
     margin-right: 50px;
     margin-top: 30px;
+    min-width: fit-content;
 }
 
 .home.sips-logo {
