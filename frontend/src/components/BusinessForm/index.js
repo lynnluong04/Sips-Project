@@ -110,7 +110,6 @@ const CreateBusinessForm = ({notHome}) => {
                 <label>
                     Category
                     <select value={category} onChange={updateCategory}>
-                        <option disabled>Please select category</option>
                         {categories.map(type =>
                             <option key={type}>{type}</option>
                         )}

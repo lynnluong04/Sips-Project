@@ -41,6 +41,7 @@ const BusinessDetail = ({notHome}) => {
                 <div>{business?.phone}</div>
                 <div>{business?.address} New York, NY {business?.zipcode} </div>
                 <div>{business?.websiteUrl}</div>
+                <div>{business?.category}</div>
 
                 {sessionUser?.id === business?.userId &&
                     (

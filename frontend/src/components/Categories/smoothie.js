@@ -15,7 +15,7 @@ const AllSmoothie = ({ notHome }) => {
         dispatch(thunkGetBusinesses())
     }, [dispatch])
 
-    const smoothies = businesses.filter((business) => business.category === "Smoothie")
+    const smoothies = businesses.filter((business) => business.category === "Smoothies")
 
     return (
         <div className='all businesses wrapper'>

@@ -4,7 +4,8 @@ import { thunkGetBusinesses } from '../../store/business';
 import { Link } from 'react-router-dom';
 
 const AllBars = ({ notHome }) => {
-    notHome()
+    useEffect(()=> notHome())
+
     const dispatch = useDispatch();
 
     const businesses = useSelector(state => {
@@ -15,7 +16,7 @@ const AllBars = ({ notHome }) => {
         dispatch(thunkGetBusinesses())
     }, [dispatch])
 
-    const bars = businesses.filter((business) => business.category === "Bar")
+    const bars = businesses.filter((business) => business.category === 'Bar')
 
     return (
         <div className='all businesses wrapper'>
@@ -42,14 +43,14 @@ const AllBars = ({ notHome }) => {
             <div className='outer business container'>
                 <h2 className='listing title'> Best Bars in New York, NY </h2>
                 <div className='inner business container'>
-                    {bars && (bars).map((bar) => {
+                    {bars && (bars).map((business) => {
                         return (
                             <div className='each business container'>
-                                <Link key={bar.name} to={`/businesses/${bar.id}`}>
+                                <Link key={business.name} to={`/businesses/${business.id}`}>
                                     <div>
-                                        <div className='title'>{bar.name}</div>
-                                        <div>{bar.phone}</div>
-                                        <div>{bar.address} New York, NY {bar.zipcode} </div>
+                                        <div className='title'>{business.name}</div>
+                                        <div>{business.phone}</div>
+                                        <div>{business.address} New York, NY {business.zipcode} </div>
                                     </div>
                                 </Link>
                             </div>
