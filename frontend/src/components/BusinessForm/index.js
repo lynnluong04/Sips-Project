@@ -117,11 +117,11 @@ const CreateBusinessForm = ({notHome}) => {
                 </label>
                 <label>
                     Phone Number
-                    <input type='text' name='phone' value={phone} onChange={updatePhone} required placeholder=' e.g. (123) 456-7890'/>
+                    <input type='website' name='phone' value={phone} onChange={updatePhone} required placeholder='10 digit phone number'/>
                 </label>
                 <label>
                     Website Url
-                    <input type='text' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} placeholder="Optional" />
+                    <input type='url' name='websiteUrl' value={websiteUrl} onChange={updateWebsiteUrl} placeholder="Optional" />
                 </label>
                 <button className="submit business" type="submit">Add your business</button>
                 <button className="cancel" type="button" onClick={handleCancelClick}>Cancel</button>
