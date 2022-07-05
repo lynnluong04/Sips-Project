@@ -1,9 +1,12 @@
-#modal-content {
-    height: 300px;
-    width: 400px;
-    background-color: aliceblue;
+
+.login-container {
+    min-height: 30%;
+    width: 30%;
     margin-top: 0;
     border-radius: 5px;
+    border: 2px solid rgb(1, 194, 220);
+    padding: 20px;
+    margin: 20px auto;
 }
 
 form.login {

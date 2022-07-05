@@ -1,0 +1,12 @@
+.business.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+
+.business.content {
+    width: 50%;
+    margin: 20px;
+    border: 2px solid rgb(1, 194, 220);
+}

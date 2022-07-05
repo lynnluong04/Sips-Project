@@ -43,12 +43,6 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'cascade',
       hooks: true
     })
-     Business.hasMany(models.Image, {
-      foreignKey: 'businessId',
-      onDelete: 'cascade',
-      hooks: true
-    })
-
 
   };
   return Business;

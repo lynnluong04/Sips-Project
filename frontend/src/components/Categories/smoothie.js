@@ -4,7 +4,7 @@ import { thunkGetBusinesses } from '../../store/business';
 import { Link } from 'react-router-dom';
 
 const AllSmoothie = ({ notHome }) => {
-    notHome();
+    useEffect(()=> notHome())
     const dispatch = useDispatch();
 
     const businesses = useSelector(state => {

@@ -15,7 +15,7 @@ import AllTea from "./components/Categories/tea";
 import AllSmoothie from "./components/Categories/smoothie";
 import AllBoba from "./components/Categories/boba";
 import AllCoffee from "./components/Categories/coffee";
-import LoginForm from "./components/LoginForm";
+import LoginFormPage from "./components/LoginFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +40,6 @@ function App() {
         </Route>
         <Route exact path='/businesses/:businessId'>
           <BusinessDetail notHome={()=> setIsHome(false)}/>
-          <AllReviews notHome={()=> setIsHome(false)}/>
         </Route>
         <Route exact path='/bars'>
           <AllBars notHome={()=> setIsHome(false)}/>
@@ -61,7 +60,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/login">
-            <LoginForm notHome={()=> setIsHome(false)}/>
+            <LoginFormPage notHome={()=> setIsHome(false)}/>
           </Route>
           <Route exact path="/signup">
             <SignupFormPage notHome={()=> setIsHome(false)}/>

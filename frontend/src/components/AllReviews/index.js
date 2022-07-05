@@ -6,8 +6,7 @@ import { useParams } from 'react-router-dom';
 import { thunkGetReviews, thunkDeleteReview } from "../../store/reviews";
 
 
-const AllReviews = ({notHome}) => {
-    notHome();
+const AllReviews = () => {
     const sessionUser = useSelector(state => state.session.user);
 
     const { businessId } = useParams()

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import "./AllBusinesses.css"
 
 const AllBusinesses = ({ notHome }) => {
-    notHome();
+    useEffect(()=> notHome())
     const dispatch = useDispatch();
     const businesses = useSelector(state => {
         return Object.values(state.business);
