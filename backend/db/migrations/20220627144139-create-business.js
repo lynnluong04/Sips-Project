@@ -17,25 +17,25 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(25)
+        type: Sequelize.STRING
       },
       description: {
         type: Sequelize.TEXT
       },
       address: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING
       },
       zipcode: {
         type: Sequelize.INTEGER
       },
       category: {
         allowNull: false,
-        type: Sequelize.STRING(15)
+        type: Sequelize.STRING
       },
       phone: {
         allowNull: false,
-        type: Sequelize.STRING(14)
+        type: Sequelize.STRING
       },
       websiteUrl: {
         type: Sequelize.STRING
