@@ -1,10 +1,12 @@
 //components/Splash
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Splash.css'
 
 const Splash = ({homeNav}) => {
 
-homeNav();
+useEffect(()=>homeNav())
+
 
     return (
         <div id="categories-container">
