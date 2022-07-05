@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkCreateBusiness } from '../../store/business';
+import "./BusinessForm.css"
 
 const categories = ['Bar', 'Bubble Tea', 'Coffee', 'Smoothies', 'Tea'];
 

@@ -225,12 +225,7 @@ textarea {
     height: 100px;
 }
 
-input {
-    height: 20px;
-    width: 250px;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
+
 
 .profile.menu {
     height: 40px;
