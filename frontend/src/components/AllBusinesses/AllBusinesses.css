@@ -56,7 +56,7 @@ img.map {
     display: flex;
     flex-flow: column;
     align-items: center;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .each.business {
