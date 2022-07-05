@@ -6,6 +6,7 @@ import { thunkUpdateBusiness, thunkGetBusinesses } from '../../store/business';
 const categories = ['Bar', 'Bubble Tea', 'Coffee', 'Smoothies', 'Tea'];
 
 const EditBusinessForm = ({ business, hideForm }) => {
+
     const dispatch = useDispatch();
 
     const [name, setName] = useState(business.name);
