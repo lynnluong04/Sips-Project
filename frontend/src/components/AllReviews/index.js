@@ -33,7 +33,7 @@ const AllReviews = () => {
                 return (
                     <div className='each-review' key={review.id}>
                         <div id="review-title">{review.title}</div>
-                        <div id="review-user">Posted by: {review.User.username}</div>
+                        <div id="review-user">Posted by: {review?.User?.username}</div>
                         <div id="review-content">{review.description}</div>
                         <div id="review-rating"> rated {review.rating}/5 <img className='star' src="https://www.linkpicture.com/q/star-removebg-preview.png" type="image"/> </div>
 
