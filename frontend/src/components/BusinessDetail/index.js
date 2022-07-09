@@ -77,7 +77,6 @@ const BusinessDetail = ({ notHome }) => {
                     <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/pzNrEjTSvg4jvVoLpeUT6w/o.jpg' alt="example"></img>
                     <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/jwdZpTqbT0Ft7oKOpKGO3A/o.jpg' alt="example"></img>
                     <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/H_AFCZwAZsnbimNAyPrbbw/o.jpg' alt="example"></img>
-                    <img className='placeholder' src='https://s3-media0.fl.yelpcdn.com/bphoto/cS_AaKzYqLgTohYQqTfWnQ/o.jpg' alt="example"></img>
                 </div>
             </div>
             <div className='reviews content'>
