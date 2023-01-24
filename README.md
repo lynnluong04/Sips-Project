@@ -9,7 +9,7 @@ Sips is fullstack web application modeled after Yelp and is focused on businesse
 ## Technologies Used
 - Languages: Javascript, HTML, CSS
 - Front-End: React, JSX, Redux
-- Back-End: Express, Javascript
+- Back-End: Express, Sequelize
 - Database: PostgreSQL
 - Hosting: Heroku
 
