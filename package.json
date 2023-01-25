@@ -11,6 +11,11 @@
     "sequelize": "npm run --prefix backend sequelize",
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend",
+    "backend-install": "npm install --prefix backend",
+    "backend": "npm run dev --prefix backend",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "frontend-build": "npm run build --prefix frontend",
     "build": "npm run backend-install && npm run frontend-install && npm run frontend-build"
   },
   "repository": {
